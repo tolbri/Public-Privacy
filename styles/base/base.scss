@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  @extend %cover;
+  font-size: calc(100vw / 1920 * 10);
+  font-family: $lato;
+  position: fixed;
+  line-height: 1;
+  overflow: hidden;
+  background: $color-primary;
+  color: $color-dark;
+
+  @include media('<phone') {
+    font-size: calc(100vw / 750 * 10);
+  }
+}
+
+body {
+  @extend %cover;
+  position: fixed;
+}
+
+
+img {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.content {
+ // @extend %cover;
+}

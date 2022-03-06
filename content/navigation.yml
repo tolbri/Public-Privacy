@@ -1,0 +1,7 @@
+- index:
+    title: Link 1
+    target: '/home'
+
+- index:
+    title: Link 2
+    target: '/about'

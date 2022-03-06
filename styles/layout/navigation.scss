@@ -1,0 +1,48 @@
+header {
+  @extend %container;
+  z-index: z('navigation');
+  background-color: $color-primary;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 9rem 0;
+  font-size: 2rem;
+}
+
+.navigation__link {
+  font-weight: bold;
+}
+
+.navigation__list {
+  display: flex;
+}
+
+.navigation__list__item {
+  padding-left: 4rem;
+}
+
+
+.navigation__language {
+  display: flex;
+}
+
+.navigation__langauge__item {
+  &:not(:last-child):after{
+    content: "/";
+    padding: 0 10px;
+  }
+}
