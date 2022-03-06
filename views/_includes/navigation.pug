@@ -1,14 +1,11 @@
 header
   nav.navigation
-    a.navigation__link Home
+    a.navigation__link(href='/')= meta.title
 
     ul.navigation__list
-      li.navigation__list__item
-        a.navigation__list__link(href='#') Link 1
-      li.navigation__list__item
-        a.navigation__list__link(href='#') Link 2
-      li.navigation__list__item
-        a.navigation__list__link(href='#') Link 3
+      each item in navigation.pages
+        li.navigation__list__item
+          a.navigation__list__link(href=item.target)=item.title
 
     ul.navigation__language
       li.navigation__langauge__item EN

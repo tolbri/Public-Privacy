@@ -1,0 +1,9 @@
+{
+  "name": "Public Privacy",
+  "short_name": "Public Privacy",
+  "theme_color": "#B0D6E2",
+  "background_color": "#b0d6e2",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}

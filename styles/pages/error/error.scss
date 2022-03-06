@@ -1,0 +1,24 @@
+.error {
+}
+
+.error__wrapper {
+  @extend %container;
+  padding: 9rem 0;
+}
+
+.error__title {
+  font-size: 8rem;
+  line-height: 1.4;
+}
+
+.error__status {
+  font-size: 6rem;
+  line-height: 1.2;
+  opacity: 50%;
+}
+
+.error__stack {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 4rem 0;
+}

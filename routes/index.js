@@ -17,9 +17,11 @@ const handleRequest = async () => {
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  await handleRequest();
+  const defaults = await handleRequest();
 
-  res.render('pages/home');
+  res.render('pages/home', {
+    ...defaults,
+  });
 });
 
 module.exports = router;

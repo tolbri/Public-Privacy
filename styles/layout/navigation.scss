@@ -18,9 +18,12 @@ header {
 .navigation {
   display: flex;
   justify-content: space-between;
-
-  padding: 9rem 0;
-  font-size: 2rem;
+  padding: 6rem 0;
+  font-size: 1.8rem;
+  line-height: 1.8;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .navigation__link {
@@ -32,7 +35,26 @@ header {
 }
 
 .navigation__list__item {
-  padding-left: 4rem;
+  margin-left: 4rem;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-darkest;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 }
 
 

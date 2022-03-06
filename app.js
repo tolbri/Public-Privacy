@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
+const YAML = require('yaml');
+const fs = require('fs');
 
 const app = express();
 
@@ -32,8 +34,13 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
+  const meta = YAML.parse(fs.readFileSync('./content/meta.yml', 'utf8'));
+  const navigation = YAML.parse(
+    fs.readFileSync('./content/navigation.yml', 'utf8')
+  );
+
   res.status(err.status || 500);
-  res.render('pages/error');
+  res.render('pages/error', { meta, navigation });
 });
 
 module.exports = app;

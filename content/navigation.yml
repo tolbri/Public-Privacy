@@ -1,7 +1,32 @@
-- index:
-    title: Link 1
-    target: '/home'
+pages:
+  - title: Faces
+    target: '/faces'
 
-- index:
-    title: Link 2
+  - title: Indoor
+    target: '/indoor'
+
+  - title: Nudity
+    target: '/nudity'
+
+  - title: Outdoor
+    target: '/outdoor'
+
+  - title: People
+    target: '/people'
+
+  - title: Religion
+    target: '/religion'
+
+  - title: Tattoos
+    target: '/tattoos'
+
+languages:
+  - title: English
+    code: en
+
+  - title: Deutsch
+    code: de
+
+footer:
+  - title: About
     target: '/about'
