@@ -1,0 +1,11 @@
+extends ../index
+
+block variables
+  -  var template = 'home'
+
+block content
+  .error
+    .error__wrapper
+      h1= message
+      h2= error.status
+      pre #{error.stack}
