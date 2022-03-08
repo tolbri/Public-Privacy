@@ -2,6 +2,8 @@ header {
   @extend %container;
   z-index: z('navigation');
   background-color: $color-primary;
+  position: sticky;
+  top: 0;
 
   &:after {
     content: "";

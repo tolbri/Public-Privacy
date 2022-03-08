@@ -56,7 +56,7 @@ export default class Navigation extends Component {
           opacity: 1,
         },
         {
-          z: -100,
+          z: -200,
           filter: 'blur(5px)',
           opacity: 0.5,
         },
@@ -66,7 +66,7 @@ export default class Navigation extends Component {
         this.elements.links,
         {
           display: 'none',
-          z: 100,
+          z: 200,
           opacity: 0,
           filter: 'blur(5px)',
         },
@@ -82,9 +82,10 @@ export default class Navigation extends Component {
     if (this.isOpen) {
       this.isOpen = false;
       timeline.reverse(0);
+      content.style.overflow = 'scroll';
     } else {
       this.isOpen = true;
-      content.classList.add('open');
+      content.style.overflow = 'hidden';
       timeline.play();
     }
   }

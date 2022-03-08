@@ -1,0 +1,11 @@
+%title-20 {
+  font-size: 2rem;
+  font-weight: lighter;
+  margin-bottom: 3.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}

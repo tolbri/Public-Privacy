@@ -6,5 +6,15 @@ block variables
 block content
   .filter
     .filter__wrapper
-      h1= filter.title
-      h1= filter.description
+
+      section.filter__section
+        .filter__section__row
+          .filter__name__wrapper
+            h1.filter__name= filter.title
+            p.filter__description= filter.definition
+          .filter__description_wrapper
+            h2.filter__description__title= filter.descriptionTitle
+            p.filter__description= filter.description
+
+      section.filter__section
+

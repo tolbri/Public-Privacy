@@ -2,6 +2,59 @@
   @extend %container;
 }
 
-h1 {
-  font-size: 4rem;
+.filter__section{
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+  }
+
+  @include media('<=phone') {
+    width: 100%;
+    padding: 0;
+  }
+}
+.filter__section__row{
+  padding: 9rem 0;
+  display: flex;
+
+  @include media('<phone') {
+    flex-direction: column;
+  }
+}
+.filter__name__wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-right: 2rem;
+
+  @include media('<phone') {
+    padding-right: 0;
+  }
+}
+.filter__name{
+  @extend %title-20;
+}
+.filter__description_wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding-left: 2rem;
+
+  @include media('<phone') {
+    padding-left: 0;
+  }
+}
+
+.filter__description__title{
+  @extend %title-20;
+
+}
+.filter__description{
+  @extend %description-30;
 }
