@@ -1,10 +1,10 @@
 extends ../index
 
 block variables
-  -  var template = 'faces'
+  -  var template = template
 
 block content
   .filter
     .filter__wrapper
-      h1=template
-      h1= Hallo
+      h1= filter.title
+      h1= filter.description

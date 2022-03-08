@@ -123,8 +123,14 @@ header {
 }
 
 .navigation__langauge__item {
+
   &:not(:last-child):after{
     content: "/";
     padding: 0 10px;
   }
+}
+
+.navigation__langauge__item__active a{
+  transition: opacity .5s;
+  opacity: 50%;
 }

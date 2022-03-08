@@ -10,10 +10,11 @@ header
     ul.navigation__list
       each item in navigation.pages
         li.navigation__list__item
-          a.navigation__list__link(href=item.target id=item.title)=item.title
+          a.navigation__list__link(href=item.target id=item.target)=item.title
 
     ul.navigation__language
-      li.navigation__langauge__item EN
-      li.navigation__langauge__item DE
+      each item in language
+        li.navigation__langauge__item(id=item.code)
+          a(href='?locale=' + item.code)=item.code
 
 

@@ -7,18 +7,22 @@ export default class Navigation extends Component {
     super({
       elements: {
         links: '.navigation__list__item',
-        active: '#' + template,
         toggle: '.navigation__mobile__toggle',
+        language: '.navigation__langauge__item',
       },
     });
 
     this.onChange(template);
+    this.changeLanguage();
   }
 
   onChange(template) {
-    this.elements.links.forEach((elem) =>
-      elem.classList.remove('navigation__list__item__active')
-    );
+    document
+      .querySelectorAll('.navigation__list__item__active')
+      .forEach((elem) =>
+        elem.classList.remove('navigation__list__item__active')
+      );
+
     if (
       template === 'faces' ||
       template === 'indoor' ||
@@ -28,7 +32,9 @@ export default class Navigation extends Component {
       template === 'religion' ||
       template === 'tattoos'
     ) {
-      this.elements.active.classList.add('navigation__list__item__active');
+      document
+        .querySelector('#' + template)
+        .classList.add('navigation__list__item__active');
     }
   }
 
@@ -82,10 +88,43 @@ export default class Navigation extends Component {
     }
   }
 
+  clickLanguageButton() {
+    this.changeLanguage();
+    setTimeout(() => {
+      window.location.reload();
+      return false;
+    }, 100);
+  }
+
+  changeLanguage() {
+    const current = document.querySelector(
+      '.navigation__langauge__item__active'
+    );
+
+    if (current) {
+      current.classList.remove('navigation__langauge__item__active');
+    }
+
+    setTimeout(() => {
+      const cookie = {};
+      document.cookie.split(';').forEach((elem) => {
+        const [key, value] = elem.split('=');
+        cookie[key.trim()] = value;
+      });
+
+      document
+        .querySelector('#' + cookie.language)
+        .classList.add('navigation__langauge__item__active');
+    }, 100);
+  }
+
   addEventListeners() {
     this.elements.toggle.addEventListener(
       'click',
       this.toggleNavigation.bind(this)
+    );
+    this.elements.language.forEach((elem) =>
+      elem.addEventListener('click', this.clickLanguageButton.bind(this))
     );
   }
 }

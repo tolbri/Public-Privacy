@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const requestLanguage = require('express-request-language');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
@@ -21,6 +22,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// localization
+app.use(
+  requestLanguage({
+    languages: ['en', 'de'],
+    queryName: 'locale',
+    cookie: {
+      name: 'language',
+      options: { maxAge: 24 * 3600 * 1000 },
+      url: '/languages/{language}',
+    },
+  })
+);
+
 app.use('/', indexRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -34,9 +48,12 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  const meta = YAML.parse(fs.readFileSync('./content/meta.yml', 'utf8'));
+  const lang = req.language;
+  const meta = YAML.parse(
+    fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')
+  );
   const navigation = YAML.parse(
-    fs.readFileSync('./content/navigation.yml', 'utf8')
+    fs.readFileSync('./resources/' + lang + '/navigation.yml', 'utf8')
   );
 
   res.status(err.status || 500);

@@ -1,0 +1,25 @@
+pages:
+  - title: gesichter
+    target: 'faces'
+
+  - title: wohnung
+    target: 'indoor'
+
+  - title: nackt
+    target: 'nudity'
+
+  - title: draussen
+    target: 'outdoor'
+
+  - title: leute
+    target: 'people'
+
+  - title: religion
+    target: 'religion'
+
+  - title: tattoos
+    target: 'tattoos'
+
+footer:
+  - title: about
+    target: 'about'
