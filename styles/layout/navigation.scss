@@ -12,6 +12,15 @@ header {
     height: 1px;
     background-color: currentColor;
     transform: translateX(-50%);
+
+    @include media('<=phone') {
+      width: 92%;
+    }
+  }
+
+  @include media('<=phone') {
+    width: 100%;
+    padding: 0 4%;
   }
 }
 
@@ -24,6 +33,32 @@ header {
   font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 1px;
+
+  @include media('<=phone') {
+    padding: 2.5rem 0;
+  }
+}
+
+.navigation__logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__mobile__toggle {
+  display: none;
+  width: 4rem;
+  height: 100%;
+  margin-right: 8px;
+  position: relative;
+
+  @include media('<=phone') {
+    display: block;
+  }
+}
+
+.navigation__mobile__icon {
+  @extend %cover;
+  stroke: $color-darkest;
 }
 
 .navigation__link {
@@ -32,12 +67,38 @@ header {
 
 .navigation__list {
   display: flex;
+
+  @include media('<=phone') {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0 4%;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
 }
 
 .navigation__list__item {
   margin-left: 4rem;
   position: relative;
 
+  @include media('<=phone') {
+    margin: 2.2rem 0;
+    display: none;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.navigation__list__item__active {
+  opacity: 50%;
+}
+
+.navigation__list__link {
   &:after {
     content: '';
     position: absolute;
@@ -56,7 +117,6 @@ header {
     transform-origin: bottom left;
   }
 }
-
 
 .navigation__language {
   display: flex;

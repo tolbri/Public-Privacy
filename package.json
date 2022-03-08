@@ -27,7 +27,7 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-standard": "^5.0.0",
     "file-loader": "^6.2.0",
-    "gsap": "^3.6.1",
+    "gsap": "^3.9.1",
     "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin": "^7.0.1",
     "imagemin-gifsicle": "^7.0.0",
@@ -59,10 +59,12 @@
     "errorhandler": "^1.5.1",
     "express": "~4.16.1",
     "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2",
+    "save-dev": "^0.0.1-security",
     "ua-parser-js": "^1.0.2",
     "yaml": "2.0.0-10"
   }

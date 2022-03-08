@@ -30,4 +30,8 @@
   margin: 0 auto;
   max-width: 144rem;
   width: 100%;
+
+  @include media('<=phone') {
+    width: 92%;
+  }
 }

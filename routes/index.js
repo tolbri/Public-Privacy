@@ -15,12 +15,21 @@ const handleRequest = async () => {
   };
 };
 
-/* GET home page. */
 router.get('/', async function (req, res, next) {
   const defaults = await handleRequest();
 
   res.render('pages/home', {
     ...defaults,
+  });
+});
+
+router.get('/faces', async function (req, res, next) {
+  const defaults = await handleRequest();
+  const template = 'faces';
+
+  res.render('pages/filter', {
+    ...defaults,
+    template,
   });
 });
 

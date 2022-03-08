@@ -40,7 +40,10 @@ app.use(function (err, req, res, next) {
   );
 
   res.status(err.status || 500);
-  res.render('pages/error', { meta, navigation });
+  res.render('pages/error', {
+    meta,
+    navigation,
+  });
 });
 
 module.exports = app;

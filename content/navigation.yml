@@ -1,32 +1,32 @@
 pages:
-  - title: Faces
+  - title: faces
     target: '/faces'
 
-  - title: Indoor
+  - title: indoor
     target: '/indoor'
 
-  - title: Nudity
+  - title: nudity
     target: '/nudity'
 
-  - title: Outdoor
+  - title: outdoor
     target: '/outdoor'
 
-  - title: People
+  - title: people
     target: '/people'
 
-  - title: Religion
+  - title: religion
     target: '/religion'
 
-  - title: Tattoos
+  - title: tattoos
     target: '/tattoos'
 
 languages:
-  - title: English
+  - title: english
     code: en
 
-  - title: Deutsch
+  - title: deutsch
     code: de
 
 footer:
-  - title: About
+  - title: about
     target: '/about'

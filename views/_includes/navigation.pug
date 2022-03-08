@@ -1,11 +1,16 @@
 header
   nav.navigation
-    a.navigation__link(href='/')= meta.title
+    .navigation__logo
+      a.navigation__mobile__toggle
+        svg.navigation__mobile__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+          path(stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16")
+
+      a.navigation__link(href='/')= meta.title
 
     ul.navigation__list
       each item in navigation.pages
         li.navigation__list__item
-          a.navigation__list__link(href=item.target)=item.title
+          a.navigation__list__link(href=item.target id=item.title)=item.title
 
     ul.navigation__language
       li.navigation__langauge__item EN
