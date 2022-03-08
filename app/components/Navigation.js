@@ -1,6 +1,7 @@
 import GSAP from 'gsap';
 
 import Component from 'classes/Component';
+import Detection from '../classes/Detection';
 
 export default class Navigation extends Component {
   constructor({ template }) {
@@ -12,8 +13,10 @@ export default class Navigation extends Component {
       },
     });
 
+    this.isOpen = false;
+
     this.onChange(template);
-    this.changeLanguage();
+    this.updateLanguage();
   }
 
   onChange(template) {
@@ -40,7 +43,6 @@ export default class Navigation extends Component {
 
   toggleNavigation() {
     const content = document.querySelector('.content');
-    const isOpen = content.classList.contains('open');
 
     const timeline = GSAP.timeline({
       duration: 0.1,
@@ -77,26 +79,25 @@ export default class Navigation extends Component {
         0
       );
 
-    if (isOpen) {
-      content.classList.remove('open');
-
+    if (this.isOpen) {
+      this.isOpen = false;
       timeline.reverse(0);
     } else {
+      this.isOpen = true;
       content.classList.add('open');
-
       timeline.play();
     }
   }
 
   clickLanguageButton() {
-    this.changeLanguage();
+    this.updateLanguage();
     setTimeout(() => {
       window.location.reload();
       return false;
     }, 100);
   }
 
-  changeLanguage() {
+  updateLanguage() {
     const current = document.querySelector(
       '.navigation__langauge__item__active'
     );
@@ -123,8 +124,15 @@ export default class Navigation extends Component {
       'click',
       this.toggleNavigation.bind(this)
     );
+
     this.elements.language.forEach((elem) =>
       elem.addEventListener('click', this.clickLanguageButton.bind(this))
     );
+
+    if (Detection.isPhone()) {
+      this.elements.links.forEach((elem) =>
+        elem.addEventListener('click', this.toggleNavigation.bind(this))
+      );
+    }
   }
 }

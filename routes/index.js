@@ -27,14 +27,6 @@ const handleRequest = async (req) => {
 router.get('/', async function (req, res, next) {
   const defaults = await handleRequest(req);
 
-  res.render('pages/home', {
-    ...defaults,
-  });
-});
-
-router.get('/faces', async function (req, res, next) {
-  const defaults = await handleRequest(req);
-
   defaults.template = 'faces';
   defaults.filter = defaults[defaults.template];
 

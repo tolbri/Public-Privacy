@@ -27,6 +27,7 @@ header {
 .navigation {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 6rem 0;
   font-size: 1.8rem;
   line-height: 1.8;
@@ -39,7 +40,7 @@ header {
   }
 }
 
-.navigation__logo {
+.navigation__home__wrapper{
   display: flex;
   flex-direction: row;
 }
@@ -47,7 +48,6 @@ header {
 .navigation__mobile__toggle {
   display: none;
   width: 4rem;
-  height: 100%;
   margin-right: 8px;
   position: relative;
 
@@ -61,8 +61,24 @@ header {
   stroke: $color-darkest;
 }
 
-.navigation__link {
+.navigation__home__link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navigation__home__text {
   font-weight: bold;
+}
+
+.navigation__logo{
+  stroke: $color-darkest;
+  width: 3rem;
+  margin-right: 2rem;
+
+  @include media('<=phone') {
+    display: none;
+  }
 }
 
 .navigation__list {
@@ -71,14 +87,14 @@ header {
   @include media('<=phone') {
     position: fixed;
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 0 4%;
     flex-direction: column;
     align-items: center;
     transform-style: preserve-3d;
     perspective: 1000px;
+    z-index: z('navigation');
   }
 }
 
@@ -133,4 +149,8 @@ header {
 .navigation__langauge__item__active a{
   transition: opacity .5s;
   opacity: 50%;
+}
+
+#overlay {
+  z-index: z('overlay');
 }
