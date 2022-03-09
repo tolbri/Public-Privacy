@@ -8,6 +8,10 @@ block content
     .filter__wrapper
 
       section.filter__section
+        .filter__cover
+          img.filter__cover__image(src='img/' + template + '/' + template + '-' + randomImage + '.jpg')
+
+      section.filter__section
         .filter__section__row
           .filter__name__wrapper
             h1.filter__name= filter.title
@@ -17,4 +21,11 @@ block content
             p.filter__description= filter.description
 
       section.filter__section
+        .filter__section__row
+          .filter__name__wrapper
+            h1.filter__name= filter.title
+            p.filter__description= filter.definition
+          .filter__description_wrapper
+            h2.filter__description__title= filter.descriptionTitle
+            p.filter__description= filter.description
 

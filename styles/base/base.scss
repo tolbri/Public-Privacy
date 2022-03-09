@@ -44,8 +44,18 @@ a {
   transform: translateZ(0px);
   height: 100vh;
   overflow: scroll;
+
+  @include media('<phone') {
+    padding-top: 8rem;
+  }
+
 }
 
-.content::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
+}
+
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none
 }

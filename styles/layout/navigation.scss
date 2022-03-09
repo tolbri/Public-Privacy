@@ -114,6 +114,11 @@ header {
 
 .navigation__list__item__active {
   opacity: 50%;
+  @include media('<=phone') {
+    opacity: 100%;
+    border: $color-darkest solid 1px;
+    padding: 1rem 2rem;
+  }
 }
 
 .navigation__list__link {

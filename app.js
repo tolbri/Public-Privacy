@@ -60,6 +60,9 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   const lang = req.language;
+  const language = YAML.parse(
+    fs.readFileSync('./resources/language.yml', 'utf8')
+  );
   const meta = YAML.parse(
     fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')
   );
@@ -71,6 +74,7 @@ app.use(function (err, req, res, next) {
   res.render('pages/error', {
     meta,
     navigation,
+    language,
   });
 });
 

@@ -58,7 +58,7 @@ export default class Navigation extends Component {
         {
           z: -200,
           filter: 'blur(5px)',
-          opacity: 0.5,
+          opacity: 0.2,
         },
         0
       )

@@ -3,6 +3,7 @@
 }
 
 .filter__section{
+  position: relative;
   &:after {
     content: "";
     position: absolute;
@@ -19,12 +20,29 @@
     padding: 0;
   }
 }
+
+.filter__cover{
+  background-color: $color-darkest;
+}
+
+.filter__cover__image{
+  width: 60rem;
+  height: 80rem;
+  margin: 0 auto;
+  object-fit: cover;
+  @include media('<phone') {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .filter__section__row{
   padding: 9rem 0;
   display: flex;
 
   @include media('<phone') {
     flex-direction: column;
+    gap: 6rem;
   }
 }
 .filter__name__wrapper{
@@ -35,6 +53,7 @@
 
   @include media('<phone') {
     padding-right: 0;
+    width: 100%;
   }
 }
 .filter__name{
@@ -48,6 +67,7 @@
 
   @include media('<phone') {
     padding-left: 0;
+    width: 100%;
   }
 }
 
