@@ -1,9 +1,24 @@
 header {
-  @extend %container;
   z-index: z('navigation');
   background-color: $color-primary;
   position: fixed;
   top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation {
+  @extend %container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 0;
+  font-size: 1.8rem;
+  line-height: 1.8;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
   &:after {
     content: "";
@@ -22,28 +37,7 @@ header {
 
   @include media('<=phone') {
     width: 100%;
-    padding: 0 4%;
-  }
-
-  @include media('>=phone') {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem 0;
-  font-size: 1.8rem;
-  line-height: 1.8;
-  font-weight: lighter;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
-  @include media('<=phone') {
-    padding: 2.5rem 0;
+    padding: 2.5rem 4%;
   }
 }
 

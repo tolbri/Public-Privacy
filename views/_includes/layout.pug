@@ -8,6 +8,7 @@ html(class= isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : ""
 
 
     #content.content(data-template=template)
-      block content
+      #trigger
+        block content
 
     include scripts

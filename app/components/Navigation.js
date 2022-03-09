@@ -1,7 +1,10 @@
 import GSAP from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Component from 'classes/Component';
 import Detection from '../classes/Detection';
+
+GSAP.registerPlugin(ScrollTrigger);
 
 export default class Navigation extends Component {
   constructor({ template }) {
@@ -15,8 +18,31 @@ export default class Navigation extends Component {
 
     this.isOpen = false;
 
+    if (!Detection.isPhone()) {
+      this.onScroll();
+    }
+
     this.onChange(template);
     this.updateLanguage();
+  }
+
+  onScroll() {
+    const navigation = document.querySelector('.navigation');
+    const timeline = GSAP.timeline({
+      scrollTrigger: {
+        scroller: '.content',
+        trigger: '#trigger',
+        start: 'top 100',
+        end: '+=10',
+        // markers: true,
+        toggleActions: 'play none reverse',
+      },
+    });
+
+    timeline.to(navigation, {
+      padding: '2.5rem 0',
+      ease: 'expo.inOut',
+    });
   }
 
   onChange(template) {

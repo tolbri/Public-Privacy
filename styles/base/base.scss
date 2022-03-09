@@ -46,6 +46,7 @@ a {
   transform: translateZ(0px);
   height: 100vh;
   overflow: auto;
+  padding-top: 15.2rem;
 
   @include media('<phone') {
     padding-top: 8rem;
