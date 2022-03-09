@@ -16,6 +16,8 @@ html {
   line-height: 1;
   background: $color-primary;
   color: $color-dark;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 
   @include media('<phone') {
     font-size: calc(100vw / 480 * 10);
@@ -43,19 +45,10 @@ a {
 .content {
   transform: translateZ(0px);
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 
   @include media('<phone') {
     padding-top: 8rem;
   }
 
-}
-
-*::-webkit-scrollbar {
-  display: none;
-}
-
-* {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none
 }

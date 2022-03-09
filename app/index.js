@@ -3,6 +3,8 @@
 
 import each from 'lodash/each';
 
+// import './utils/scroll';
+
 import Navigation from './components/Navigation';
 
 class App {

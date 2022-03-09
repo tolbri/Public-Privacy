@@ -82,11 +82,11 @@ export default class Navigation extends Component {
     if (this.isOpen) {
       this.isOpen = false;
       timeline.reverse(0);
-      content.style.overflow = 'scroll';
+      content.style.overflow = 'auto';
     } else {
       this.isOpen = true;
       content.style.overflow = 'hidden';
-      timeline.play();
+      // timeline.play();
     }
   }
 

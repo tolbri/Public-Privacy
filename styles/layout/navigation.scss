@@ -2,7 +2,7 @@ header {
   @extend %container;
   z-index: z('navigation');
   background-color: $color-primary;
-  position: sticky;
+  position: fixed;
   top: 0;
 
   &:after {
@@ -23,6 +23,11 @@ header {
   @include media('<=phone') {
     width: 100%;
     padding: 0 4%;
+  }
+
+  @include media('>=phone') {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
