@@ -27,7 +27,7 @@ html {
 body {
   @extend %cover;
   position: relative;
-  overflow: hidden;
+  // overflow-x: hidden;
   transform-style: preserve-3d;
   perspective: 1000px;
 }
@@ -47,6 +47,8 @@ a {
   height: 100vh;
   overflow: auto;
   padding-top: 15.2rem;
+
+  @include scrollbars;
 
   @include media('<phone') {
     padding-top: 8rem;

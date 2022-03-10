@@ -116,13 +116,14 @@
 .filter__preview__wrapper{
   display: flex;
   flex-direction: column;
+  max-height: calc(100vh - 16rem);
   width: 100%;
-  gap: 4rem;
+  border: $color-darkest solid 1px;
+  padding: 2rem;
 
   @include media('<phone') {
     flex-direction: row;
     padding: 2rem 0;
-    gap: 2rem;
     background-color: $color-primary;
 
     &:after {
@@ -149,17 +150,36 @@
   }
 }
 .filter__preview__media{
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  max-height: calc(100vh - 32rem);
+  object-fit: cover;
+  object-position: top;
+  border: $color-darkest solid 1px;
+  margin-bottom: 2rem;
 
   @include media('<phone') {
     width: 50%;
     height: auto;
+    padding: 0 2rem;
+    margin-bottom: 0;
+    border: none;
+    border-right: $color-darkest solid 1px;
   }
 }
 
 .filter__gallery__comment {
   @extend %description-10;
-  overflow: scroll;
+  border: $color-darkest solid 1px;
+  padding: 2rem;
+  overflow-y: scroll;
+  @include scrollbars;
+  min-height: 8rem;
+
+  @include media('<phone') {
+    padding: 0 2rem;
+    border: none;
+  }
 }
 
 .filter__gallery{
@@ -213,3 +233,5 @@
   @extend %cover;
   filter: grayscale(100%);
 }
+
+
