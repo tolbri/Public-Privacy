@@ -25,12 +25,18 @@ const handleRequest = async (req) => {
   };
 };
 
-const getRandomImage = (folder) => {
-  const files = fs.readdirSync('./shared/img/' + folder, (err, files) => {
+const getRandomImages = (folder) => {
+  const files = fs.readdirSync('./shared/img/60x60/' + folder, (err, files) => {
     return files;
   });
   const images = files.filter((elem) => path.extname(elem) === '.jpg');
-  return Math.floor(Math.random() * images.length) + 1;
+
+  const shuffled = images
+    .map((elem) => ({ elem, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ elem }) => elem);
+
+  return shuffled;
 };
 
 router.get('/', async function (req, res, next) {
@@ -38,7 +44,7 @@ router.get('/', async function (req, res, next) {
 
   defaults.template = 'faces';
   defaults.filter = defaults[defaults.template];
-  defaults.randomImage = getRandomImage(defaults.template);
+  defaults.randomImages = getRandomImages(defaults.template);
 
   res.render('pages/filter', {
     ...defaults,

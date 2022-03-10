@@ -46,6 +46,15 @@
     gap: 6rem;
   }
 }
+
+.filter__section__row__gallery{
+  padding: 9rem 0;
+
+  @include media('<phone') {
+    padding-bottom: 0;
+  }
+}
+
 .filter__name__wrapper{
   display: flex;
   flex-direction: column;
@@ -77,5 +86,130 @@
 
 }
 .filter__description{
-  @extend %description-30;
+  @extend %description-20;
+}
+
+.filter__gallery__wrapper{
+  position: relative;
+  display: flex;
+
+  @include media('<phone') {
+    flex-direction: column;
+  }
+}
+.filter__gallery__preview{
+  position: sticky;
+  top:-3rem;
+  align-self: flex-start;
+  height: auto;
+  width: 40%;
+  padding-right: 2rem;
+  z-index: 1;
+
+  @include media('<phone') {
+    top:0;
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+.filter__preview__wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4rem;
+
+  @include media('<phone') {
+    flex-direction: row;
+    padding: 2rem 0;
+    gap: 2rem;
+    background-color: $color-primary;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transform: translateX(-50%);
+    }
+
+    &:before {
+      content:"";
+      position:absolute;
+      top: 100%;
+      width:100%;
+      bottom:1px;
+      z-index: -1;
+      transform:scale(.95);
+      //box-shadow: 0px 0px 8px 2px #000000;
+    }
+  }
+}
+.filter__preview__media{
+  width: 100%;
+
+  @include media('<phone') {
+    width: 50%;
+    height: auto;
+  }
+}
+
+.filter__gallery__comment {
+  @extend %description-10;
+  overflow: scroll;
+}
+
+.filter__gallery{
+  width: 60%;
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 2px;
+  padding: 2px;
+  background-color: $color-darkest;
+
+  @include media('<phone') {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 9rem;
+  }
+}
+.gallery__image__wrapper{
+  position: relative;
+  padding-top: 100%;
+}
+
+.filter__price {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-darkest;
+  color: $color-lightest;
+  font-size: 4rem;
+  font-family: $playfair-display;
+  opacity: 0;
+  cursor: crosshair;
+  transition: opacity .3s ease-in-out;
+
+  &:hover{
+    opacity: 1;
+  }
+
+  @include media('<phone') {
+    font-size: 1.6rem;
+  }
+}
+
+.gallery__image__media{
+  @extend %cover;
+  filter: grayscale(100%);
 }

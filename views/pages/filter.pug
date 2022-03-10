@@ -9,7 +9,36 @@ block content
 
       section.filter__section
         .filter__cover
-          img.filter__cover__image(src='img/' + template + '/' + template + '-' + randomImage + '.jpg')
+          img.filter__cover__image(src='img/600x800/' + template + '/' + randomImages[0])
+
+      section.filter__section
+        .filter__section__row
+          .filter__name__wrapper
+            h1.filter__name= filter.title
+            p.filter__description= filter.definition
+          .filter__description_wrapper
+            h2.filter__description__title= filter.descriptionTitle
+            p.filter__description= filter.description
+
+      section.filter__section
+        .filter__section__row__gallery
+          h1.filter__name Dataset
+          .filter__gallery__wrapper
+            .filter__gallery__preview
+              .filter__preview__wrapper
+                img.filter__preview__media(src='img/600x800/' + template + '/' + randomImages[0])
+                .filter__gallery__comment
+                  p= filter.description
+            .filter__gallery
+              each media in randomImages
+                .gallery__image__wrapper
+                  img.gallery__image__media(src='img/60x60/' + template + '/' + media)
+                  .filter__price(data-image=template + '/' + media)
+                    span 19.00€
+
+
+
+
 
       section.filter__section
         .filter__section__row
@@ -29,11 +58,3 @@ block content
             h2.filter__description__title= filter.descriptionTitle
             p.filter__description= filter.description
 
-      section.filter__section
-        .filter__section__row
-          .filter__name__wrapper
-            h1.filter__name= filter.title
-            p.filter__description= filter.definition
-          .filter__description_wrapper
-            h2.filter__description__title= filter.descriptionTitle
-            p.filter__description= filter.description
