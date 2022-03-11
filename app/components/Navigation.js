@@ -32,8 +32,8 @@ export default class Navigation extends Component {
       scrollTrigger: {
         scroller: '.content',
         trigger: '#trigger',
-        start: 'top 100',
-        end: '+=10',
+        start: 'top 80rem',
+        end: '+=50',
         // markers: true,
         toggleActions: 'play none reverse',
       },

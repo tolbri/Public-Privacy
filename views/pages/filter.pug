@@ -9,7 +9,7 @@ block content
 
       section.filter__section
         .filter__cover
-          img.filter__cover__image(src='img/600x800/' + template + '/' + randomImages[0])
+          img.filter__cover__image(src='img/600x800/' + template + '/' + randomImages[1])
 
       section.filter__section
         .filter__section__row
@@ -32,9 +32,9 @@ block content
             .filter__gallery
               each media in randomImages
                 .gallery__image__wrapper
-                  img.gallery__image__media(src='img/60x60/' + template + '/' + media)
+                  img.gallery__image__media(src='img/60x60/' + template + '/' + media, loading='lazy')
                   .filter__price(data-image=template + '/' + media)
-                    span 19.00€
+                    span= media
 
 
 

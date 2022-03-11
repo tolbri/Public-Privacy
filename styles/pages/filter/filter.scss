@@ -125,6 +125,7 @@
     flex-direction: row;
     padding: 2rem 0;
     background-color: $color-primary;
+    border: none;
 
     &:after {
       content: "";
@@ -215,10 +216,10 @@
   background-color: $color-darkest;
   color: $color-lightest;
   font-size: 4rem;
-  font-family: $playfair-display;
   opacity: 0;
   cursor: crosshair;
   transition: opacity .3s ease-in-out;
+  text-align: center;
 
   &:hover{
     opacity: 1;

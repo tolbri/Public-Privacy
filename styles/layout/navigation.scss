@@ -14,11 +14,12 @@ header {
 
 .navigation {
   @extend %container;
-  background-color: $color-primary;
+  background-color: $color-lightest;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 6rem 0;
+  font-family: $prettywise;
   font-size: 1.8rem;
   line-height: 1.8;
   font-weight: lighter;
@@ -74,6 +75,7 @@ header {
 }
 
 .navigation__home__text {
+  font-family: $epilogue;
   font-weight: bold;
 }
 

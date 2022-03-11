@@ -6,11 +6,13 @@ import each from 'lodash/each';
 // import './utils/scroll';
 
 import Navigation from './components/Navigation';
+import Gallery from './components/Gallery';
 
 class App {
   constructor() {
     this.createContent();
     this.createNavigation();
+    this.createGallery();
 
     this.addLinkListeners();
   }
@@ -22,6 +24,12 @@ class App {
 
   createNavigation() {
     this.navigation = new Navigation({
+      template: this.template,
+    });
+  }
+
+  createGallery() {
+    this.gallery = new Gallery({
       template: this.template,
     });
   }
