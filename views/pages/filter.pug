@@ -1,12 +1,11 @@
 extends ../index
 
 block variables
-  -  var template = template
+  - var template = template;
 
 block content
   .filter
     .filter__wrapper
-
       section.filter__section
         .filter__section__row
           .filter__name__wrapper
@@ -22,27 +21,36 @@ block content
           .filter__gallery__wrapper
             .filter__gallery__preview
               .filter__preview__wrapper
-                  img.filter__preview__media(src='img/600x800/' + template + '/' + template + '-' + randomImages[0].local_image_id + '.jpg')
-                  .filter__gallery__comment__wrapper
-                    .filter__gallery__comment
-                      p= randomImages[0].comment_data.content
-                      .filter__comment__footer
-                        p.filter__total__spend= filterPage.bill + ': '
-                          span=randomImages[0].local_image_id
-                          | €
-                        img.filter__flag(src='flags/' + randomImages[0].comment_data.country + '.svg')
-                        p.filter__date= moment(randomImages[0].comment_data.comment_time).format("DD.MM.YYYY")
+                img.filter__preview__media(
+                  src='img/600x800/' + template + '/' + template + '-' + randomImages[0].local_image_id + '.jpg'
+                )
+                .filter__gallery__comment__wrapper
+                  .filter__gallery__comment
+                    .filter__comment__header
+                      p.filter__total__spend= filterPage.bill + ': '
+                        span= randomImages[0].local_image_id
+                        | €
+                      img.filter__flag(
+                        src='flags/' + randomImages[0].comment_data.country + '.svg'
+                      )
+                      p.filter__date= moment(randomImages[0].comment_data.comment_time).format('DD.MM.YYYY')
+                    p.filter__comment__content= randomImages[0].comment_data.content
             .filter__gallery
               each media in randomImages
                 .gallery__image__wrapper
-                  img.gallery__image__media(src='img/200x200/' + template + '/' + template + '-' + media.local_image_id + '.jpg', loading='lazy')
-                  .filter__overlay(data-image=template + '/' + template + '-' + media.local_image_id + '.jpg' data-review=media.comment_data.content data-date=moment(media.comment_data.comment_time).format("DD.MM.YYYY") data-country=media.comment_data.country data-spend=media.local_image_id)
+                  img.gallery__image__media(
+                    src='img/200x200/' + template + '/' + template + '-' + media.local_image_id + '.jpg',
+                    loading='lazy'
+                  )
+                  .filter__overlay(
+                    data-image=template + '/' + template + '-' + media.local_image_id + '.jpg',
+                    data-review=media.comment_data.content,
+                    data-date=moment(media.comment_data.comment_time).format('DD.MM.YYYY'),
+                    data-country=media.comment_data.country,
+                    data-spend=media.local_image_id
+                  )
                     span= media.local_image_id
 
-
-
-
-
       section.filter__section
         .filter__section__row
           .filter__name__wrapper
@@ -60,4 +68,3 @@ block content
           .filter__description_wrapper
             h2.filter__description__title= filter.descriptionTitle
             p.filter__description= filter.description
-

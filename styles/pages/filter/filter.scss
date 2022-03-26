@@ -203,13 +203,13 @@
   }
 }
 
-.filter__comment__footer{
-  border-top: #252525 1px solid;
-  margin-top: 2rem;
+.filter__comment__header {
+  border-bottom: #252525 1px solid;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   @include media('<phone') {
     flex-wrap: wrap;
@@ -256,7 +256,7 @@
   grid-template-rows: auto;
   grid-gap: 2px;
   padding: 2px;
-  //background-color: $color-darkest;
+  background-color: $color-darkest;
 
   @include media('<phone') {
     width: 100%;
@@ -267,7 +267,7 @@
 .gallery__image__wrapper{
   position: relative;
   padding-top: 100%;
-  //opacity: 0;
+  opacity: 0;
 }
 
 .filter__overlay {
@@ -296,9 +296,14 @@
   }
 }
 
+.overlay__active {
+  opacity: 1;
+  background-color: $color-primary;
+}
+
 .gallery__image__media{
   @extend %cover;
-  filter: grayscale(100%);
+  // filter: grayscale(100%);
 }
 
 

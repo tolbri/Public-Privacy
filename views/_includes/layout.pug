@@ -1,11 +1,13 @@
 block variables
 doctype html
-html(class= isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "" lang=lang)
+html(
+  class=isDesktop ? 'desktop' : isTablet ? 'tablet' : isPhone ? 'phone' : '',
+  lang=lang
+)
   head
     include head
   body
     include navigation
-
 
     #content.content(data-template=template)
       #trigger

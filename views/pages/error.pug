@@ -1,11 +1,11 @@
 extends ../index
 
 block variables
-  -  var template = 'error'
+  - var template = 'error';
 
 block content
   .error
     .error__wrapper
       h1.error__title= message
       h2.error__status= error.status
-      pre.error__stack #{error.stack}
+      pre.error__stack #{ error.stack }

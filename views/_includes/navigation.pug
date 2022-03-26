@@ -2,21 +2,26 @@ header
   nav.navigation
     .navigation__home__wrapper
       .navigation__mobile__toggle
-        svg.navigation__mobile__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
-          path(stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16")
+        svg.navigation__mobile__icon(
+          xmlns='http://www.w3.org/2000/svg',
+          viewBox='0 0 24 24'
+        )
+          path(
+            stroke-linecap='round',
+            stroke-linejoin='round',
+            d='M4 8h16M4 16h16'
+          )
 
       .navigation__home__link
-        object.navigation__logo(data='./logo.svg' type="image/svg+xml")
+        object.navigation__logo(data='./logo.svg', type='image/svg+xml')
         .navigation__home__text= meta.title
 
     ul.navigation__list
       each item in navigation.pages
         li.navigation__list__item
-          a.navigation__list__link(href=item.target id=item.id)=item.title
+          a.navigation__list__link(href=item.target, id=item.id)= item.title
 
     ul.navigation__language
       each item in language
         li.navigation__langauge__item(id=item.code)
-          a(href='?locale=' + item.code)=item.code
-
-
+          a(href='?locale=' + item.code)= item.code

@@ -15,7 +15,7 @@ export default class Gallery extends Component {
 
     this.template = template;
     this.addEventListeners();
-    // this.addScrollTrigger();
+    this.addScrollTrigger();
   }
 
   addScrollTrigger() {
@@ -31,10 +31,14 @@ export default class Gallery extends Component {
   }
 
   show() {
+    const overlay = document.querySelector('.overlay__active');
+    if (overlay) {
+      overlay.classList.remove('overlay__active');
+    }
+    this.classList.add('overlay__active');
+
     const commentImage = document.querySelector('.filter__preview__media');
-    const commentContent = document.querySelector(
-      '.filter__gallery__comment p'
-    );
+    const commentContent = document.querySelector('.filter__comment__content');
     const commentDate = document.querySelector('.filter__date');
     const commentCountry = document.querySelector('.filter__flag');
     const commentSpend = document.querySelector('.filter__total__spend span');
