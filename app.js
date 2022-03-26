@@ -24,6 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // localization
+app.locals.moment = require('moment');
+
 app.use(
   requestLanguage({
     languages: ['en', 'de'],

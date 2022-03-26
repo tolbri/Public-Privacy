@@ -8,13 +8,9 @@ block content
     .filter__wrapper
 
       section.filter__section
-        .filter__cover
-          img.filter__cover__image(src='img/600x800/' + template + '/' + randomImages[1])
-
-      section.filter__section
         .filter__section__row
           .filter__name__wrapper
-            h1.filter__name= filter.title
+            h1.filter__name Definition
             p.filter__description= filter.definition
           .filter__description_wrapper
             h2.filter__description__title= filter.descriptionTitle
@@ -26,15 +22,22 @@ block content
           .filter__gallery__wrapper
             .filter__gallery__preview
               .filter__preview__wrapper
-                img.filter__preview__media(src='img/600x800/' + template + '/' + randomImages[0])
-                .filter__gallery__comment
-                  p= filter.description
+                  img.filter__preview__media(src='img/600x800/' + template + '/' + template + '-' + randomImages[0].local_image_id + '.jpg')
+                  .filter__gallery__comment__wrapper
+                    .filter__gallery__comment
+                      p= randomImages[0].comment_data.content
+                      .filter__comment__footer
+                        p.filter__total__spend= filterPage.bill + ': '
+                          span=randomImages[0].local_image_id
+                          | €
+                        img.filter__flag(src='flags/' + randomImages[0].comment_data.country + '.svg')
+                        p.filter__date= moment(randomImages[0].comment_data.comment_time).format("DD.MM.YYYY")
             .filter__gallery
               each media in randomImages
                 .gallery__image__wrapper
-                  img.gallery__image__media(src='img/60x60/' + template + '/' + media, loading='lazy')
-                  .filter__price(data-image=template + '/' + media)
-                    span= media
+                  img.gallery__image__media(src='img/200x200/' + template + '/' + template + '-' + media.local_image_id + '.jpg', loading='lazy')
+                  .filter__overlay(data-image=template + '/' + template + '-' + media.local_image_id + '.jpg' data-review=media.comment_data.content data-date=moment(media.comment_data.comment_time).format("DD.MM.YYYY") data-country=media.comment_data.country data-spend=media.local_image_id)
+                    span= media.local_image_id
 
 
 

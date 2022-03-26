@@ -1,6 +1,6 @@
 pages:
   - title: gesichter
-    id: 'faces'
+    id: 'face'
     target: '/'
 
   - title: wohnung

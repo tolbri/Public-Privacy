@@ -28,8 +28,6 @@ body {
   @extend %cover;
   position: relative;
    overflow: hidden;
-  transform-style: preserve-3d;
-  perspective: 1000px;
 
   &:after {
     animation: grain 6s steps(10) infinite;

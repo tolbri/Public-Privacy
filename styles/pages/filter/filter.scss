@@ -97,25 +97,11 @@
     flex-direction: column;
   }
 }
-.filter__gallery__preview{
-  position: sticky;
-  top:-3rem;
-  align-self: flex-start;
-  height: auto;
-  width: 40%;
-  padding-right: 2rem;
-  z-index: 1;
-
-  @include media('<phone') {
-    top:0;
-    width: 100%;
-    padding-right: 0;
-  }
-}
 
 .filter__preview__wrapper{
   display: flex;
   flex-direction: column;
+  height: 100%;
   max-height: calc(100vh - 16rem);
   width: 100%;
   border: $color-darkest solid 1px;
@@ -124,7 +110,7 @@
   @include media('<phone') {
     flex-direction: row;
     padding: 2rem 0;
-    background-color: $color-primary;
+    background-color: $color-lightest;
     border: none;
 
     &:after {
@@ -150,9 +136,28 @@
     }
   }
 }
+
+.filter__gallery__preview{
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  top:-3rem;
+  align-self: flex-start;
+  height: 100%;
+  width: 40%;
+  padding-right: 2rem;
+  z-index: 1;
+  max-height: calc(100vh - 16rem);
+
+  @include media('<phone') {
+    top:0;
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
 .filter__preview__media{
   max-width: 100%;
-  max-height: 100%;
   max-height: calc(100vh - 32rem);
   object-fit: cover;
   object-position: top;
@@ -161,25 +166,85 @@
 
   @include media('<phone') {
     width: 50%;
-    height: auto;
-    padding: 0 2rem;
+    height: 30%;
+    padding-right: 2rem;
     margin-bottom: 0;
     border: none;
     border-right: $color-darkest solid 1px;
   }
 }
 
+.filter__gallery__comment__wrapper {
+  position: relative;
+  min-height: 8rem;
+  max-height: 100%;
+  overflow-y: scroll;
+  border: $color-darkest solid 1px;
+  @include scrollbars;
+
+  @include media('<phone') {
+    width: 50%;
+    height: 0;
+    border: none;
+    padding-top: 60%;
+  }
+
+}
+
 .filter__gallery__comment {
   @extend %description-10;
-  border: $color-darkest solid 1px;
   padding: 2rem;
-  overflow-y: scroll;
-  @include scrollbars;
-  min-height: 8rem;
 
   @include media('<phone') {
     padding: 0 2rem;
-    border: none;
+
+    position: absolute;
+    top: 0;
+  }
+}
+
+.filter__comment__footer{
+  border-top: #252525 1px solid;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+
+  @include media('<phone') {
+    flex-wrap: wrap;
+
+  }
+}
+
+.filter__flag {
+  height: 2rem;
+  margin: 0 12px 0 auto;
+  width: auto;
+
+  @include media('<phone') {
+    height: 1.5rem;
+    margin: 0 auto 0 0;
+  }
+}
+
+.filter__date {
+  text-align: right;
+  font-weight: lighter;
+  padding-top: 3px;
+}
+
+.filter__total__spend {
+  text-align: right;
+  font-weight: lighter;
+  padding-top: 3px;
+  color: $color-primary;
+  font-style: italic;
+  font-weight: bold;
+
+  @include media('<phone') {
+    width: 100%;
+    order: 3;
   }
 }
 
@@ -191,7 +256,7 @@
   grid-template-rows: auto;
   grid-gap: 2px;
   padding: 2px;
-  background-color: $color-darkest;
+  //background-color: $color-darkest;
 
   @include media('<phone') {
     width: 100%;
@@ -202,9 +267,10 @@
 .gallery__image__wrapper{
   position: relative;
   padding-top: 100%;
+  //opacity: 0;
 }
 
-.filter__price {
+.filter__overlay {
   position: absolute;
   top: 0;
   left: 0;

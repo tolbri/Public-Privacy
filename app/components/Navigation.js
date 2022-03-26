@@ -24,6 +24,7 @@ export default class Navigation extends Component {
 
     this.onChange(template);
     this.updateLanguage();
+    this.addEventListeners();
   }
 
   onScroll() {
@@ -71,47 +72,45 @@ export default class Navigation extends Component {
     const content = document.querySelector('.content');
 
     const timeline = GSAP.timeline({
-      duration: 0.1,
+      duration: 0.2,
       ease: 'expo.inOut',
     })
       .fromTo(
         content,
         {
-          z: 0,
-          filter: 'blur(0px)',
           opacity: 1,
+          filter: 'blur(0px)',
         },
         {
-          z: -200,
+          opacity: 0.1,
           filter: 'blur(5px)',
-          opacity: 0.2,
         },
         0
       )
       .fromTo(
         this.elements.links,
         {
-          display: 'none',
-          z: 200,
           opacity: 0,
-          filter: 'blur(5px)',
         },
         {
-          display: 'block',
-          z: 0,
           opacity: 1,
-          filter: 'blur(0px)',
+          stagger: 0.1,
         },
         0
       );
 
     if (this.isOpen) {
       this.isOpen = false;
-      timeline.reverse(0);
-      content.style.overflow = 'auto';
+      timeline.reverse(0).then(() => {
+        this.elements.links.forEach((elem) => {
+          elem.style.display = 'none';
+        });
+      });
     } else {
       this.isOpen = true;
-      content.style.overflow = 'hidden';
+      this.elements.links.forEach((elem) => {
+        elem.style.display = 'block';
+      });
       // timeline.play();
     }
   }

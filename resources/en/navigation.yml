@@ -1,6 +1,6 @@
 pages:
-  - title: faces
-    id: 'faces'
+  - title: face
+    id: 'face'
     target: '/'
 
   - title: indoor
