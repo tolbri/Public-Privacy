@@ -10,9 +10,9 @@ block content
         .filter__section__row
           .filter__name__wrapper
             h1.filter__name Definition
-            p.filter__description= filter.definition
+            p.filter__description= page.definition
           .filter__description_wrapper
-            h2.filter__description__title= filter.descriptionTitle
+            h2.filter__description__title= page.description
             p.filter__description= filter.description
 
       section.filter__section
@@ -27,7 +27,7 @@ block content
                 .filter__gallery__comment__wrapper
                   .filter__gallery__comment
                     .filter__comment__header
-                      p.filter__total__spend= filterPage.bill + ': '
+                      p.filter__total__spend= page.bill + ': '
                         span= randomImages[0].local_image_id
                         | €
                       img.filter__flag(

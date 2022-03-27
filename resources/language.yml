@@ -1,6 +1,5 @@
+- title: english
+  code: en
 
-  - title: english
-    code: en
-
-  - title: deutsch
-    code: de
+- title: deutsch
+  code: de

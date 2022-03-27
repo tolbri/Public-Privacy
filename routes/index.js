@@ -1,76 +1,95 @@
-const express = require('express');
-const router = express.Router();
-const { MongoClient } = require('mongodb');
-const fs = require('fs');
-const YAML = require('yaml');
-const path = require('path');
+const express = require('express')
+const router = express.Router()
+const { MongoClient } = require('mongodb')
+const fs = require('fs')
+const YAML = require('yaml')
+const path = require('path')
 
 // Connection URL
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+const url = 'mongodb://localhost:27017'
+const client = new MongoClient(url)
 
-const handleRequest = async (req) => {
-  const lang = req.language;
+const handleRequest = async (req, template) => {
+    const lang = req.language
 
-  const [language, meta, navigation, filterPage, face] = await Promise.all([
-    YAML.parse(fs.readFileSync('./resources/language.yml', 'utf8')),
-    YAML.parse(fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')),
-    YAML.parse(
-      fs.readFileSync('./resources/' + lang + '/navigation.yml', 'utf8')
-    ),
-    YAML.parse(fs.readFileSync('./resources/' + lang + '/filter.yml', 'utf8')),
-    YAML.parse(fs.readFileSync('./resources/' + lang + '/face.yml', 'utf8')),
-  ]);
+    const [language, meta, navigation, page, filter] = await Promise.all([
+        YAML.parse(fs.readFileSync('./resources/language.yml', 'utf8')),
+        YAML.parse(
+            fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')
+        ),
+        YAML.parse(
+            fs.readFileSync('./resources/' + lang + '/navigation.yml', 'utf8')
+        ),
+        YAML.parse(
+            fs.readFileSync('./resources/' + lang + '/page.yml', 'utf8')
+        ),
+        YAML.parse(
+            fs.readFileSync(
+                './resources/' + lang + '/' + template + '.yml',
+                'utf8'
+            )
+        ),
+    ])
 
-  return {
-    lang,
-    language,
-    meta,
-    navigation,
-    filterPage,
-    face,
-  };
-};
+    const randomImages = await getRandomImages(template)
+
+    return {
+        lang,
+        language,
+        meta,
+        navigation,
+        page,
+        filter,
+        template,
+        randomImages,
+    }
+}
 
 const getComments = async (collection) => {
-  await client.connect();
+    await client.connect()
 
-  const db = client.db('public-privacy');
-  const dbCollection = db.collection('face');
+    const db = client.db('public-privacy')
+    const dbCollection = db.collection(collection)
 
-  return await dbCollection.find({}).toArray();
-};
+    return await dbCollection.find({}).toArray()
+}
 
 const getRandomImages = async (folder) => {
-  const files = await fs.promises.readdir('./shared/img/200x200/' + folder);
-  const images = files.filter((elem) => path.extname(elem) === '.jpg');
-  const ids = images.map((elem) => {
-    const string = elem.match(/\d+/g);
-    return parseInt(string[0]);
-  });
+    const files = await fs.promises.readdir('./shared/img/200x200/' + folder)
+    const images = files.filter((elem) => path.extname(elem) === '.jpg')
+    const ids = images.map((elem) => {
+        const string = elem.match(/\d+/g)
+        return parseInt(string[0])
+    })
 
-  const comments = await getComments();
+    const comments = await getComments(folder)
 
-  const items = comments.filter((elem) => ids.includes(elem.local_image_id));
+    const items = comments.filter((elem) => ids.includes(elem.local_image_id))
 
-  const shuffled = items
-    .map((elem) => ({ elem, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ elem }) => elem);
+    const shuffled = items
+        .map((elem) => ({ elem, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ elem }) => elem)
 
-  return shuffled;
-};
+    return shuffled
+}
 
 router.get('/', async function (req, res, next) {
-  const defaults = await handleRequest(req);
+    const template = 'face'
+    const defaults = await handleRequest(req, template)
 
-  defaults.template = 'face';
-  defaults.filter = defaults[defaults.template];
-  defaults.randomImages = await getRandomImages(defaults.template);
+    res.render('pages/filter', {
+        ...defaults,
+    })
+})
 
-  res.render('pages/filter', {
-    ...defaults,
-  });
-});
+router.get('/face', async function (req, res, next) {
+    const template = 'face'
+    const defaults = await handleRequest(req, template)
 
-module.exports = router;
+    res.render('pages/filter', {
+        ...defaults,
+    })
+})
+
+module.exports = router

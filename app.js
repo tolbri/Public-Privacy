@@ -65,6 +65,7 @@ app.use(function (err, req, res, next) {
   const language = YAML.parse(
     fs.readFileSync('./resources/language.yml', 'utf8')
   );
+
   const meta = YAML.parse(
     fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')
   );

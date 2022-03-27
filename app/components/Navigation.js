@@ -17,13 +17,14 @@ export default class Navigation extends Component {
     });
 
     this.isOpen = false;
+    this.language = '';
 
     if (!Detection.isPhone()) {
       this.onScroll();
     }
 
     this.onChange(template);
-    this.updateLanguage();
+    this.getLanguageCookie();
     this.addEventListeners();
   }
 
@@ -54,7 +55,7 @@ export default class Navigation extends Component {
       );
 
     if (
-      template === 'faces' ||
+      template === 'face' ||
       template === 'indoor' ||
       template === 'nudity' ||
       template === 'outdoor' ||
@@ -116,33 +117,24 @@ export default class Navigation extends Component {
   }
 
   clickLanguageButton() {
-    this.updateLanguage();
-    setTimeout(() => {
-      window.location.reload();
-      return false;
-    }, 100);
+    document
+      .querySelectorAll('.navigation__langauge__item__active')
+      .forEach((elem) =>
+        elem.classList.remove('navigation__langauge__item__active')
+      );
+
+    this.classList.add('navigation__langauge__item__active');
   }
 
-  updateLanguage() {
-    const current = document.querySelector(
-      '.navigation__langauge__item__active'
-    );
+  getLanguageCookie() {
+    const cookie = {};
+    document.cookie.split(';').forEach((elem) => {
+      const [key, value] = elem.split('=');
+      cookie[key.trim()] = value;
+    });
+    this.language = cookie.language;
 
-    if (current) {
-      current.classList.remove('navigation__langauge__item__active');
-    }
-
-    setTimeout(() => {
-      const cookie = {};
-      document.cookie.split(';').forEach((elem) => {
-        const [key, value] = elem.split('=');
-        cookie[key.trim()] = value;
-      });
-
-      document
-        .querySelector('#' + cookie.language)
-        .classList.add('navigation__langauge__item__active');
-    }, 100);
+    document.querySelector('#' + this.language).classList.add('navigation__langauge__item__active');
   }
 
   addEventListeners() {
@@ -152,7 +144,7 @@ export default class Navigation extends Component {
     );
 
     this.elements.language.forEach((elem) =>
-      elem.addEventListener('click', this.clickLanguageButton.bind(this))
+      elem.addEventListener('click', this.clickLanguageButton)
     );
 
     if (Detection.isPhone()) {
