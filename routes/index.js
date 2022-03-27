@@ -4,7 +4,26 @@ const { MongoClient } = require('mongodb');
 const fs = require('fs');
 const YAML = require('yaml');
 const path = require('path');
-
+const chart = {
+  country: {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+      },
+    ],
+  },
+  device: {
+    labels: ['iOS', 'Android', 'Others'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3],
+      },
+    ],
+  },
+};
 // Connection URL
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
@@ -35,6 +54,7 @@ const handleRequest = async (req, template) => {
     filter,
     template,
     randomImages,
+    chart,
   };
 };
 
@@ -135,6 +155,15 @@ router.get('/tattoo', async function (req, res, next) {
   const defaults = await handleRequest(req, template);
 
   res.render('pages/filter', {
+    ...defaults,
+  });
+});
+
+router.get('/test', async function (req, res, next) {
+  const template = 'tattoo';
+  const defaults = await handleRequest(req, template);
+
+  res.render('pages/test', {
     ...defaults,
   });
 });

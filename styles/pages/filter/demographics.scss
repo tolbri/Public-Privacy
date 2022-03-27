@@ -1,0 +1,43 @@
+.filter__demographic__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.filter__demographic {
+  display: flex;
+  justify-content: space-around;
+
+  @include media('<phone') {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.demographic__item {
+  width: 50%;
+
+  @include media('<phone') {
+    width: 100%;
+  }
+}
+
+.demographic__name {
+  @extend %title-16;
+}
+
+.chart__wrapper {
+  position: relative;
+  width: 90%;
+  margin: auto;
+
+  @include media('<phone') {
+    width: 100%;
+  }
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+  top: 0;
+}

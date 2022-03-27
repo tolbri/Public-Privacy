@@ -1,0 +1,31 @@
+.filter__name__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-right: 2rem;
+
+  @include media('<phone') {
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+.filter__description_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding-left: 2rem;
+
+  @include media('<phone') {
+    padding-left: 0;
+    width: 100%;
+  }
+}
+
+.filter__description__title {
+  @extend %title-20;
+}
+
+.filter__description {
+  @extend %description-20;
+}
