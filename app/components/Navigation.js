@@ -56,12 +56,12 @@ export default class Navigation extends Component {
 
     if (
       template === 'face' ||
-      template === 'indoor' ||
+      template === 'bedroom' ||
       template === 'nudity' ||
       template === 'outdoor' ||
       template === 'people' ||
       template === 'religion' ||
-      template === 'tattoos'
+      template === 'tattoo'
     ) {
       document
         .querySelector('#' + template)
@@ -134,7 +134,9 @@ export default class Navigation extends Component {
     });
     this.language = cookie.language;
 
-    document.querySelector('#' + this.language).classList.add('navigation__langauge__item__active');
+    document
+      .querySelector('#' + this.language)
+      .classList.add('navigation__langauge__item__active');
   }
 
   addEventListeners() {

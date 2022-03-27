@@ -1,7 +1,8 @@
-title: Face
+title: People
 definition: Images that show at least half of a person's face.
 description: >
   Showing your face and who you are in public is not an issue in most cultures.
   However, what if you would lose control over its biometric data?
   For example, 19% of the photo show facial data. By uploading your face to the internet,
   you are not able to trace what happens to it.
+cover: './img/face/face-00002.jpg'

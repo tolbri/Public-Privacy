@@ -1,33 +1,33 @@
 pages:
-    - title: face
-      id: 'face'
-      target: '/face'
+  - title: face
+    id: 'face'
+    target: '/face'
 
-    - title: indoor
-      id: '/indoor'
-      target: 'indoor'
+  - title: bedroom
+    id: 'bedroom'
+    target: '/bedroom'
 
-    - title: nudity
-      id: '/nudity'
-      target: 'nudity'
+  - title: nudity
+    id: 'nudity'
+    target: '/nudity'
 
-    - title: outdoor
-      id: '/outdoor'
-      target: 'outdoor'
+  - title: outdoor
+    id: 'outdoor'
+    target: '/outdoor'
 
-    - title: people
-      id: '/people'
-      target: 'people'
+  - title: people
+    id: 'people'
+    target: '/people'
 
-    - title: religion
-      id: '/religion'
-      target: 'religion'
+  - title: religion
+    id: 'religion'
+    target: '/religion'
 
-    - title: tattoos
-      id: '/tattoos'
-      target: 'tattoos'
+  - title: tattoos
+    id: 'tattoo'
+    target: '/tattoo'
 
 footer:
-    - title: about
-      if: 'about'
-      target: '/about'
+  - title: about
+    id: 'about'
+    target: '/about'
