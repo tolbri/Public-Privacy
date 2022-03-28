@@ -107,7 +107,7 @@ const getRandomImages = async (folder) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ elem }) => elem);
 
-  return items;
+  return shuffled;
 };
 
 const getChartData = async (data) => {
