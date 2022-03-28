@@ -44,6 +44,7 @@ const handleRequest = async (req, template) => {
 
   const countryNames = countries[0].map((elem) => {
     const data = countryList.find((e) => e.code === elem);
+    console.log(elem);
     return data.name;
   });
 
