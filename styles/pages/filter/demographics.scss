@@ -11,6 +11,7 @@
   @include media('<phone') {
     flex-direction: column;
     justify-content: space-between;
+    order: 3;
   }
 }
 
@@ -40,4 +41,15 @@
   width: 100%;
   height: 100%;
   top: 0;
+}
+
+.demographic__description {
+  @extend %description-20;
+  max-width: 50%;
+
+  @include media('<phone') {
+    max-width: 100%;
+    order: 2;
+    margin-bottom: 6rem;
+  }
 }

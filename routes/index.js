@@ -45,16 +45,24 @@ const handleRequest = async (req, template) => {
 
   const allCountries = randomImages.map((elem) => elem.comment_data.country);
   const countries = await getChartData(allCountries);
-  countries[0] = countries[0].slice(0, 3);
-  countries[1] = countries[1].slice(0, 3);
 
-  const countryNames = countries[0].map((elem) => {
+  const topCountriesCode = countries[0].slice(0, 3);
+  const topCountriesValue = countries[1].slice(0, 3);
+
+  const otherCountriesValue = countries[1]
+    .slice(3)
+    .reduce((partialSum, a) => partialSum + a, 0);
+
+  const countryNames = topCountriesCode.map((elem) => {
     const data = countryList.find((e) => e.code === elem);
-    console.log(elem);
     return data.name;
   });
 
   countries[0] = countryNames;
+  countries[1] = topCountriesValue;
+
+  countries[0].push('Rest');
+  countries[1].push(otherCountriesValue);
 
   const chart = {
     device: {
@@ -117,7 +125,7 @@ const getRandomImages = async (folder) => {
   return shuffled;
 };
 
-const getChartData = async (data) => {
+const getChartData = (data) => {
   const labels = [];
   const values = [];
   const arr = [...data];
@@ -132,13 +140,27 @@ const getChartData = async (data) => {
     prev = element;
   }
 
+  const unordered = [];
+  for (let i = 0; i < labels.length; i++) {
+    unordered.push({ label: labels[i], value: values[i] });
+  }
+
+  unordered.sort((a, b) => {
+    return a.value < b.value ? -1 : a.value == b.value ? 0 : 1;
+  });
+
+  for (let k = 0; k < unordered.length; k++) {
+    labels[k] = unordered[k].label;
+    values[k] = unordered[k].value;
+  }
+
   labels.reverse();
   values.reverse();
 
   return [labels, values];
 };
 
-router.get('/', async function(req, res, next) {
+router.get('/', async function (req, res, next) {
   const template = 'face';
   const defaults = await handleRequest(req, template);
 
@@ -147,7 +169,7 @@ router.get('/', async function(req, res, next) {
   });
 });
 
-router.get('/face', async function(req, res, next) {
+router.get('/face', async function (req, res, next) {
   const template = 'face';
   const defaults = await handleRequest(req, template);
 
@@ -156,7 +178,7 @@ router.get('/face', async function(req, res, next) {
   });
 });
 
-router.get('/bedroom', async function(req, res, next) {
+router.get('/bedroom', async function (req, res, next) {
   const template = 'bedroom';
   const defaults = await handleRequest(req, template);
 
@@ -165,7 +187,7 @@ router.get('/bedroom', async function(req, res, next) {
   });
 });
 
-router.get('/nudity', async function(req, res, next) {
+router.get('/nudity', async function (req, res, next) {
   const template = 'nudity';
   const defaults = await handleRequest(req, template);
 
@@ -174,7 +196,7 @@ router.get('/nudity', async function(req, res, next) {
   });
 });
 
-router.get('/outdoor', async function(req, res, next) {
+router.get('/outdoor', async function (req, res, next) {
   const template = 'outdoor';
   const defaults = await handleRequest(req, template);
 
@@ -183,7 +205,7 @@ router.get('/outdoor', async function(req, res, next) {
   });
 });
 
-router.get('/people', async function(req, res, next) {
+router.get('/people', async function (req, res, next) {
   const template = 'people';
   const defaults = await handleRequest(req, template);
 
@@ -192,7 +214,7 @@ router.get('/people', async function(req, res, next) {
   });
 });
 
-router.get('/religion', async function(req, res, next) {
+router.get('/religion', async function (req, res, next) {
   const template = 'religion';
   const defaults = await handleRequest(req, template);
 
@@ -201,7 +223,7 @@ router.get('/religion', async function(req, res, next) {
   });
 });
 
-router.get('/tattoo', async function(req, res, next) {
+router.get('/tattoo', async function (req, res, next) {
   const template = 'tattoo';
   const defaults = await handleRequest(req, template);
 
@@ -210,7 +232,7 @@ router.get('/tattoo', async function(req, res, next) {
   });
 });
 
-router.get('/test', async function(req, res, next) {
+router.get('/test', async function (req, res, next) {
   const template = 'tattoo';
   const defaults = await handleRequest(req, template);
 

@@ -1,6 +1,7 @@
 @import './definition';
 @import './gallery';
 @import './demographics';
+@import './timeline';
 
 .filter__wrapper {
   @extend %container;

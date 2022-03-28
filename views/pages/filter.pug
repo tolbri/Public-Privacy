@@ -54,14 +54,15 @@ block content
       section.filter__section
         .filter__section__row
           .filter__demographic__wrapper
-            h1.filter__name Definition
+            h1.filter__name= page.demography
             .filter__demographic
               .demographic__item
                 h2.demographic__name= page.countryChart
                 .chart__wrapper
                   canvas#country__chart.chart(chart-data=chart.country)
-
               .demographic__item
                 h2.demographic__name= page.deviceChart
                 .chart__wrapper
                   canvas#device__chart.chart(chart-data=chart.device)
+            .demographic__description
+              p= page.chartDescription

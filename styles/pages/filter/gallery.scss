@@ -172,6 +172,7 @@
   grid-gap: 2px;
   padding: 2px;
   background-color: $color-darkest;
+  align-self: start;
 
   @include media('<phone') {
     width: 100%;

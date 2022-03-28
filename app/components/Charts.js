@@ -2,11 +2,17 @@ import Chart from 'chart.js/auto';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ChartDataLabels);
-Chart.defaults.datasets.pie.backgroundColor = ['#F4442D', '#010121', '#E2DBCC'];
+Chart.defaults.datasets.pie.backgroundColor = [
+  '#F4442D',
+  '#010121',
+  '#E2DBCC',
+  '#282828',
+];
 Chart.defaults.datasets.pie.hoverBackgroundColor = [
   '#F4442D',
   '#010121',
   '#E2DBCC',
+  '#282828',
 ];
 Chart.defaults.datasets.pie.borderColor = '#F6EEDC';
 Chart.defaults.datasets.pie.hoverBorderColor = '#F6EEDC';
@@ -33,7 +39,7 @@ Chart.defaults.plugins.tooltip.displayColors = false;
 Chart.defaults.aspectRatio = 2;
 // Chart.defaults.events = '';
 Chart.defaults.plugins.legend.display = false;
-Chart.defaults.layout.padding = { top: 0, right: 80, bottom: 0, left: 80 };
+Chart.defaults.layout.padding = { top: 0, right: 100, bottom: 0, left: 100 };
 Chart.defaults.animation.duration = 1000;
 Chart.defaults.animation.easing = 'easeInOutExpo';
 
