@@ -2,3 +2,5 @@ definition: Definition
 description: Beschreibung
 dataset: Dataset
 bill: Ausgaben
+countryChart: Top 3 Herkunftsländer
+deviceChart: Verteilung genutzter Geräte

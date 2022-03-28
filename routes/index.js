@@ -4,26 +4,8 @@ const { MongoClient } = require('mongodb');
 const fs = require('fs');
 const YAML = require('yaml');
 const path = require('path');
-const chart = {
-  country: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-      },
-    ],
-  },
-  device: {
-    labels: ['iOS', 'Android', 'Others'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3],
-      },
-    ],
-  },
-};
+const countryList = require('../resources/countries.json');
+
 // Connection URL
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
@@ -44,6 +26,47 @@ const handleRequest = async (req, template) => {
   ]);
 
   const randomImages = await getRandomImages(template);
+
+  const allDevices = randomImages.map((elem) => elem.comment_data.device);
+  const devices = await getChartData(allDevices);
+  devices[0] = devices[0].map((elem) => {
+    if (elem === 'ios') {
+      return 'iOS';
+    } else if (elem === 'and') {
+      return 'Android';
+    } else return 'Other';
+  });
+
+  const allCountries = randomImages.map((elem) => elem.comment_data.country);
+  const countries = await getChartData(allCountries);
+  countries[0] = countries[0].slice(0, 3);
+  countries[1] = countries[1].slice(0, 3);
+
+  const countryNames = countries[0].map((elem) => {
+    const data = countryList.find((e) => e.code === elem);
+    return data.name;
+  });
+
+  countries[0] = countryNames;
+
+  const chart = {
+    device: {
+      labels: devices[0],
+      datasets: [
+        {
+          data: devices[1],
+        },
+      ],
+    },
+    country: {
+      labels: countries[0],
+      datasets: [
+        {
+          data: countries[1],
+        },
+      ],
+    },
+  };
 
   return {
     lang,
@@ -84,7 +107,28 @@ const getRandomImages = async (folder) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ elem }) => elem);
 
-  return shuffled;
+  return items;
+};
+
+const getChartData = async (data) => {
+  const labels = [];
+  const values = [];
+  const arr = [...data];
+  let prev = null;
+
+  arr.sort();
+  for (const element of arr) {
+    if (element !== prev) {
+      labels.push(element);
+      values.push(1);
+    } else ++values[values.length - 1];
+    prev = element;
+  }
+
+  labels.reverse();
+  values.reverse();
+
+  return [labels, values];
 };
 
 router.get('/', async function (req, res, next) {

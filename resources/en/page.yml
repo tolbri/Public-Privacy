@@ -2,3 +2,5 @@ definition: Definition
 description: Description
 dataset: Dataset
 bill: Total
+countryChart: Top 3 Countries of Origin
+deviceChart: Distribution of used Devices

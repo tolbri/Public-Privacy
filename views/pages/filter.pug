@@ -57,11 +57,11 @@ block content
             h1.filter__name Definition
             .filter__demographic
               .demographic__item
-                h2.demographic__name Chart Name
+                h2.demographic__name= page.countryChart
                 .chart__wrapper
                   canvas#country__chart.chart(chart-data=chart.country)
 
               .demographic__item
-                h2.demographic__name Chart Name
+                h2.demographic__name= page.deviceChart
                 .chart__wrapper
                   canvas#device__chart.chart(chart-data=chart.device)
