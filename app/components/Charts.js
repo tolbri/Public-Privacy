@@ -3,7 +3,13 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ChartDataLabels);
 Chart.defaults.datasets.pie.backgroundColor = ['#F4442D', '#010121', '#E2DBCC'];
+Chart.defaults.datasets.pie.hoverBackgroundColor = [
+  '#F4442D',
+  '#010121',
+  '#E2DBCC',
+];
 Chart.defaults.datasets.pie.borderColor = '#F6EEDC';
+Chart.defaults.datasets.pie.hoverBorderColor = '#F6EEDC';
 Chart.defaults.elements.bar.backgroundColor = '#F4442D';
 Chart.defaults.set('plugins.datalabels', {
   color: '#010121',
@@ -19,8 +25,13 @@ Chart.defaults.set('plugins.datalabels', {
     }
   },
 });
+Chart.defaults.plugins.tooltip.backgroundColor = '#010121';
+Chart.defaults.plugins.tooltip.borderColor = '#F6EEDC';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.cornerRadius = 0;
+Chart.defaults.plugins.tooltip.displayColors = false;
 Chart.defaults.aspectRatio = 2;
-Chart.defaults.events = '';
+// Chart.defaults.events = '';
 Chart.defaults.plugins.legend.display = false;
 Chart.defaults.layout.padding = { top: 0, right: 80, bottom: 0, left: 80 };
 Chart.defaults.animation.duration = 1000;

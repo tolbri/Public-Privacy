@@ -27,7 +27,13 @@ const handleRequest = async (req, template) => {
 
   const randomImages = await getRandomImages(template);
 
-  const allDevices = randomImages.map((elem) => elem.comment_data.device);
+  let allDevices = randomImages.map((elem) => elem.comment_data.device);
+  allDevices = allDevices.map((elem) => {
+    if (elem !== 'ios' && elem !== 'and') {
+      return 'other';
+    } else return elem;
+  });
+
   const devices = await getChartData(allDevices);
   devices[0] = devices[0].map((elem) => {
     if (elem === 'ios') {
@@ -132,7 +138,7 @@ const getChartData = async (data) => {
   return [labels, values];
 };
 
-router.get('/', async function (req, res, next) {
+router.get('/', async function(req, res, next) {
   const template = 'face';
   const defaults = await handleRequest(req, template);
 
@@ -141,7 +147,7 @@ router.get('/', async function (req, res, next) {
   });
 });
 
-router.get('/face', async function (req, res, next) {
+router.get('/face', async function(req, res, next) {
   const template = 'face';
   const defaults = await handleRequest(req, template);
 
@@ -150,7 +156,7 @@ router.get('/face', async function (req, res, next) {
   });
 });
 
-router.get('/bedroom', async function (req, res, next) {
+router.get('/bedroom', async function(req, res, next) {
   const template = 'bedroom';
   const defaults = await handleRequest(req, template);
 
@@ -159,7 +165,7 @@ router.get('/bedroom', async function (req, res, next) {
   });
 });
 
-router.get('/nudity', async function (req, res, next) {
+router.get('/nudity', async function(req, res, next) {
   const template = 'nudity';
   const defaults = await handleRequest(req, template);
 
@@ -168,7 +174,7 @@ router.get('/nudity', async function (req, res, next) {
   });
 });
 
-router.get('/outdoor', async function (req, res, next) {
+router.get('/outdoor', async function(req, res, next) {
   const template = 'outdoor';
   const defaults = await handleRequest(req, template);
 
@@ -177,7 +183,7 @@ router.get('/outdoor', async function (req, res, next) {
   });
 });
 
-router.get('/people', async function (req, res, next) {
+router.get('/people', async function(req, res, next) {
   const template = 'people';
   const defaults = await handleRequest(req, template);
 
@@ -186,7 +192,7 @@ router.get('/people', async function (req, res, next) {
   });
 });
 
-router.get('/religion', async function (req, res, next) {
+router.get('/religion', async function(req, res, next) {
   const template = 'religion';
   const defaults = await handleRequest(req, template);
 
@@ -195,7 +201,7 @@ router.get('/religion', async function (req, res, next) {
   });
 });
 
-router.get('/tattoo', async function (req, res, next) {
+router.get('/tattoo', async function(req, res, next) {
   const template = 'tattoo';
   const defaults = await handleRequest(req, template);
 
@@ -204,7 +210,7 @@ router.get('/tattoo', async function (req, res, next) {
   });
 });
 
-router.get('/test', async function (req, res, next) {
+router.get('/test', async function(req, res, next) {
   const template = 'tattoo';
   const defaults = await handleRequest(req, template);
 
