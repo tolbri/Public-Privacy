@@ -7,8 +7,8 @@ const path = require('path');
 const countryList = require('../resources/countries.json');
 
 // Connection URL
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+// const url = 'mongodb://localhost:27017';
+// const client = new MongoClient(url);
 
 const handleRequest = async (req, template) => {
   const lang = req.language;
