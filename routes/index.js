@@ -1,14 +1,20 @@
+require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
-const { MongoClient } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const fs = require('fs');
 const YAML = require('yaml');
 const path = require('path');
 const countryList = require('../resources/countries.json');
 
 // Connection URL
-// const url = 'mongodb://localhost:27017';
-// const client = new MongoClient(url);
+const uri = process.env.CONNECTION_STRING;
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
 
 const handleRequest = async (req, template) => {
   const lang = req.language;
