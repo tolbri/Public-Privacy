@@ -42,6 +42,9 @@ module.exports = {
 
     new CleanWebpackPlugin(),
   ],
+  externals: {
+    moment: 'moment',
+  },
 
   module: {
     rules: [

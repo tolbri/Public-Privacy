@@ -64,7 +64,6 @@
     "express-request-language": "^1.1.15",
     "imagemin-webp": "^7.0.0",
     "js-yaml": "^4.1.0",
-    "lodash": "^4.17.21",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "mongodb": "^4.4.1",
