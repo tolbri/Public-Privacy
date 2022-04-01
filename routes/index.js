@@ -113,7 +113,7 @@ const getComments = async (collection) => {
 
 const getRandomImages = async (folder) => {
   const files = await fs.promises.readdir('./shared/img/200x200/' + folder);
-  const images = files.filter((elem) => path.extname(elem) === '.jpg');
+  const images = files.filter((elem) => path.extname(elem) === '.webp');
   const ids = images.map((elem) => {
     const string = elem.match(/\d+/g);
     return parseInt(string[0]);

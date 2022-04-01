@@ -22,7 +22,7 @@ block content
             .filter__gallery__preview
               .filter__preview__wrapper
                 img.filter__preview__media(
-                  src='img/600x800/' + template + '/' + template + '-' + randomImages[0].local_image_id + '.jpg'
+                  src='img/600x800/' + template + '/' + template + '-' + randomImages[0].local_image_id + '.webp'
                 )
                 .filter__gallery__comment__wrapper
                   .filter__gallery__comment
@@ -39,11 +39,11 @@ block content
               each media in randomImages
                 .gallery__image__wrapper
                   img.gallery__image__media(
-                    src='img/200x200/' + template + '/' + template + '-' + media.local_image_id + '.jpg',
+                    src='img/200x200/' + template + '/' + template + '-' + media.local_image_id + '.webp',
                     loading='lazy'
                   )
                   .filter__overlay(
-                    data-image=template + '/' + template + '-' + media.local_image_id + '.jpg',
+                    data-image=template + '/' + template + '-' + media.local_image_id + '.webp',
                     data-review=media.comment_data.content,
                     data-date=moment(media.comment_data.comment_time).format('DD.MM.YYYY'),
                     data-country=media.comment_data.country,

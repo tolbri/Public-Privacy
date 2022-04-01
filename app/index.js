@@ -96,7 +96,7 @@ class App {
   addLinkListeners() {
     const links = document.querySelectorAll('a');
 
-    each(links, (link) => {
+    links.forEach((link) => {
       link.onclick = (event) => {
         event.preventDefault();
 
