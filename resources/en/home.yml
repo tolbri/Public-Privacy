@@ -1,0 +1,12 @@
+definition: Definition
+description: Description
+dataset: Collection
+bill: Total
+demography: Demography
+countryChart: Top 3 Countries of Origin
+deviceChart: Distribution of used Devices
+chartDescription: >
+  Showing your face and who you are in public is not an issue in most cultures.
+  However, what if you would lose control over its biometric data?
+  For example, 19% of the photo show facial data. By uploading your face to the internet,
+  you are not able to trace what happens to it.

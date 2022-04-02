@@ -19,82 +19,95 @@ const client = new MongoClient(uri, {
 const handleRequest = async (req, template) => {
   const lang = req.language;
 
-  const [language, meta, navigation, page, filter] = await Promise.all([
+  const [language, meta, navigation, filterPage, filter] = await Promise.all([
     YAML.parse(fs.readFileSync('./resources/language.yml', 'utf8')),
     YAML.parse(fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')),
     YAML.parse(
       fs.readFileSync('./resources/' + lang + '/navigation.yml', 'utf8')
     ),
-    YAML.parse(fs.readFileSync('./resources/' + lang + '/page.yml', 'utf8')),
+    YAML.parse(fs.readFileSync('./resources/' + lang + '/filter.yml', 'utf8')),
     YAML.parse(
       fs.readFileSync('./resources/' + lang + '/' + template + '.yml', 'utf8')
     ),
   ]);
 
-  const randomImages = await getRandomImages(template);
+  let chart = null;
+  let randomImages = null;
 
-  let allDevices = randomImages.map((elem) => elem.comment_data.device);
-  allDevices = allDevices.map((elem) => {
-    if (elem !== 'ios' && elem !== 'and') {
-      return 'other';
-    } else return elem;
-  });
+  if (
+    template === 'face' ||
+    template === 'bedroom' ||
+    template === 'nudity' ||
+    template === 'outdoor' ||
+    template === 'people' ||
+    template === 'religion' ||
+    template === 'tattoo'
+  ) {
+    randomImages = await getRandomImages(template);
 
-  const devices = await getChartData(allDevices);
-  devices[0] = devices[0].map((elem) => {
-    if (elem === 'ios') {
-      return 'iOS';
-    } else if (elem === 'and') {
-      return 'Android';
-    } else return 'Other';
-  });
+    let allDevices = randomImages.map((elem) => elem.comment_data.device);
+    allDevices = allDevices.map((elem) => {
+      if (elem !== 'ios' && elem !== 'and') {
+        return 'other';
+      } else return elem;
+    });
 
-  const allCountries = randomImages.map((elem) => elem.comment_data.country);
-  const countries = await getChartData(allCountries);
+    const devices = await getChartData(allDevices);
+    devices[0] = devices[0].map((elem) => {
+      if (elem === 'ios') {
+        return 'iOS';
+      } else if (elem === 'and') {
+        return 'Android';
+      } else return 'Other';
+    });
 
-  const topCountriesCode = countries[0].slice(0, 3);
-  const topCountriesValue = countries[1].slice(0, 3);
+    const allCountries = randomImages.map((elem) => elem.comment_data.country);
+    const countries = await getChartData(allCountries);
 
-  const otherCountriesValue = countries[1]
-    .slice(3)
-    .reduce((partialSum, a) => partialSum + a, 0);
+    const topCountriesCode = countries[0].slice(0, 3);
+    const topCountriesValue = countries[1].slice(0, 3);
 
-  const countryNames = topCountriesCode.map((elem) => {
-    const data = countryList.find((e) => e.code === elem);
-    return data.name;
-  });
+    const otherCountriesValue = countries[1]
+      .slice(3)
+      .reduce((partialSum, a) => partialSum + a, 0);
 
-  countries[0] = countryNames;
-  countries[1] = topCountriesValue;
+    const countryNames = topCountriesCode.map((elem) => {
+      const data = countryList.find((e) => e.code === elem);
+      return data.name;
+    });
 
-  countries[0].push('Rest');
-  countries[1].push(otherCountriesValue);
+    countries[0] = countryNames;
+    countries[1] = topCountriesValue;
 
-  const chart = {
-    device: {
-      labels: devices[0],
-      datasets: [
-        {
-          data: devices[1],
-        },
-      ],
-    },
-    country: {
-      labels: countries[0],
-      datasets: [
-        {
-          data: countries[1],
-        },
-      ],
-    },
-  };
+    countries[0].push('Rest');
+    countries[1].push(otherCountriesValue);
+
+    chart = {
+      device: {
+        labels: devices[0],
+        datasets: [
+          {
+            data: devices[1],
+          },
+        ],
+      },
+      country: {
+        labels: countries[0],
+        datasets: [
+          {
+            data: countries[1],
+          },
+        ],
+      },
+    };
+  }
 
   return {
     lang,
     language,
     meta,
     navigation,
-    page,
+    filterPage,
     filter,
     template,
     randomImages,
@@ -167,10 +180,10 @@ const getChartData = (data) => {
 };
 
 router.get('/', async function (req, res, next) {
-  const template = 'face';
+  const template = 'home';
   const defaults = await handleRequest(req, template);
 
-  res.render('pages/filter', {
+  res.render('pages/home', {
     ...defaults,
   });
 });
