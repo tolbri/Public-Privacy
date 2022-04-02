@@ -2,6 +2,7 @@ import Chart from 'chart.js/auto';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ChartDataLabels);
+Chart.defaults.font.family = 'Epilogue';
 Chart.defaults.datasets.pie.backgroundColor = [
   '#F4442D',
   '#010121',
