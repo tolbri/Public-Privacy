@@ -7,11 +7,13 @@ import each from 'lodash/each';
 
 import Navigation from './components/Navigation';
 import Gallery from './components/Gallery';
+import Header from './components/Header';
 
 class App {
   constructor() {
     this.createContent();
     this.createNavigation();
+    this.createHeader();
     this.createFilter();
 
     this.addLinkListeners();
@@ -26,6 +28,14 @@ class App {
     this.navigation = new Navigation({
       template: this.template,
     });
+  }
+
+  createHeader() {
+    if (this.template === 'home') {
+      this.header = new Header({
+        template: this.template,
+      });
+    }
   }
 
   createFilter() {
@@ -81,6 +91,7 @@ class App {
       this.content.setAttribute('data-template', this.template);
       this.content.innerHTML = divContent.innerHTML;
 
+      this.createHeader();
       this.createFilter();
 
       this.addLinkListeners();

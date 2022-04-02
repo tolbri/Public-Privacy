@@ -36,6 +36,36 @@
   }
 }
 
+%section {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+  }
+
+  @include media('<=phone') {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+%row {
+  padding: 9rem 0;
+  display: flex;
+
+  @include media('<phone') {
+    flex-direction: column;
+    gap: 6rem;
+  }
+}
+
 @mixin scrollbars() {
   & {
     scrollbar-width: auto;

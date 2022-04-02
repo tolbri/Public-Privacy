@@ -1,3 +1,33 @@
-h1 {
-  font-family: $epilogue;
+.home__wrapper {
+  @extend %container;
+}
+
+.home__section {
+  @extend %section;
+}
+
+.home__section__row {
+  @extend %row;
+  flex-direction: column;
+}
+
+.home__page__title {
+  @extend %title-160;
+  margin: 8rem auto;
+}
+
+.home__image__stream {
+  position: relative;
+  height: 20rem;
+  width: 100%;
+}
+
+.home__stream__media {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 6px;
+  filter: brightness(95%);
+  width: 200px;
+  height: 200px;
 }

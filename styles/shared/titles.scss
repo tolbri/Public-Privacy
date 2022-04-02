@@ -1,4 +1,17 @@
-%title-20 {
+%title-160 {
+  font-family: $epilogue;
+  font-size: 16rem;
+  font-weight: bold;
+  margin-bottom: 3.6rem;
+  text-transform: capitalize;
+
+  @include media('<phone') {
+    font-size: 10rem;
+    margin-bottom: 8rem;
+  }
+}
+
+%title-22 {
   font-family: $prettywise;
   font-size: 2.2rem;
   font-weight: bold;
@@ -12,7 +25,7 @@
   }
 }
 
-%title-16 {
+%title-20 {
   font-family: $epilogue;
   font-size: 2rem;
   margin-bottom: 3.6rem;

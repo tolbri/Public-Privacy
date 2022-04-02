@@ -31,8 +31,9 @@ const handleRequest = async (req, template) => {
     ),
   ]);
 
+  const randomImages = await getRandomImages(template);
+
   let chart = null;
-  let randomImages = null;
 
   if (
     template === 'face' ||
@@ -43,8 +44,6 @@ const handleRequest = async (req, template) => {
     template === 'religion' ||
     template === 'tattoo'
   ) {
-    randomImages = await getRandomImages(template);
-
     let allDevices = randomImages.map((elem) => elem.comment_data.device);
     allDevices = allDevices.map((elem) => {
       if (elem !== 'ios' && elem !== 'and') {
@@ -125,23 +124,58 @@ const getComments = async (collection) => {
 };
 
 const getRandomImages = async (folder) => {
-  const files = await fs.promises.readdir('./shared/img/200x200/' + folder);
+  let files = [];
+
+  if (folder === 'about') {
+    return;
+  } else if (folder === 'home') {
+    const folders = (
+      await fs.promises.readdir('./shared/img/200x200/', {
+        withFileTypes: true,
+      })
+    )
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name);
+
+    await Promise.all(
+      folders.map(async (elem) => {
+        const content = await fs.promises.readdir(
+          './shared/img/200x200/' + elem
+        );
+        content.forEach((e) => {
+          files.push(elem + '/' + e);
+        });
+      })
+    );
+  } else {
+    files = await fs.promises.readdir('./shared/img/200x200/' + folder);
+  }
+
   const images = files.filter((elem) => path.extname(elem) === '.webp');
+
   const ids = images.map((elem) => {
     const string = elem.match(/\d+/g);
     return parseInt(string[0]);
   });
 
-  const comments = await getComments(folder);
+  if (folder === 'home') {
+    const shuffled = shuffle(images);
+    return shuffled;
+  } else {
+    const comments = await getComments(folder);
 
-  const items = comments.filter((elem) => ids.includes(elem.local_image_id));
+    const items = comments.filter((elem) => ids.includes(elem.local_image_id));
+    const shuffled = shuffle(items);
 
-  const shuffled = items
+    return shuffled;
+  }
+};
+
+const shuffle = (array) => {
+  return array
     .map((elem) => ({ elem, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ elem }) => elem);
-
-  return shuffled;
 };
 
 const getChartData = (data) => {
@@ -182,6 +216,8 @@ const getChartData = (data) => {
 router.get('/', async function (req, res, next) {
   const template = 'home';
   const defaults = await handleRequest(req, template);
+
+  defaults.randomImages = defaults.randomImages.slice(0, 50);
 
   res.render('pages/home', {
     ...defaults,
