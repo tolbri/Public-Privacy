@@ -51,6 +51,11 @@ block content
                   )
                     span= media.local_image_id
 
+          .filter__next__wrapper
+            .filter__next
+              a(href=page.next)
+                button.filter__next__button= filterPage.nextButton
+
       section.filter__section
         .filter__section__row
           .filter__demographic__wrapper

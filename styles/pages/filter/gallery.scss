@@ -222,3 +222,26 @@
   @extend %cover;
   // filter: grayscale(100%);
 }
+
+.filter__next__wrapper {
+  display: flex;
+  justify-content: flex-end;
+
+  @include media('<phone') {
+    justify-content: flex-start;
+  }
+}
+
+.filter__next {
+  padding: 6rem 0 0 1.1rem;
+  width: 60%;
+
+  @include media('<phone') {
+    padding: 0 0 4rem 0;
+    width: 100%;
+  }
+}
+
+.filter__next__button {
+  @extend %button-black;
+}

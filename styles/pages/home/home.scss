@@ -3,18 +3,15 @@
 }
 
 .home__section__header {
-  @extend %section;
   height: calc(100vh - 30rem);
   display: flex;
   justify-content: center;
 
   @include media('<=phone') {
     justify-content: start;
+    width: 100%;
+    padding: 0;
   }
-}
-
-.filter__section {
-  @extend %section;
 }
 
 .home__section__row__header {
@@ -50,7 +47,7 @@
   position: absolute;
   transform: translate(-50%, -50%);
   border-radius: 6px;
-  filter: grayscale(100%) brightness(50%);
+  filter: grayscale(100%) brightness(80%);
   width: 200px;
   height: 200px;
 
@@ -67,6 +64,7 @@
   width: 100%;
   margin-top: 16rem;
   display: flex;
+  z-index: 2;
 }
 
 .home__empty {
