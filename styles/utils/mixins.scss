@@ -66,6 +66,62 @@
   }
 }
 
+%button {
+  position: relative;
+  @extend %description-20;
+  font-weight: bold;
+  padding: 6px 16px 6px 40px;
+  min-width: 125px;
+  min-height: 28px;
+
+  cursor: pointer;
+
+  @include media('<phone') {
+    font-size: 3rem;
+  }
+
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: $color-darkest;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease-out;
+  }
+}
+
+%button-black {
+  @extend %button;
+  background-color: #000000;
+  color: $color-lightest;
+
+  &:before {
+    border: $color-lightest solid 2px;
+  }
+
+  &:hover::before {
+    background-color: $color-lightest;
+  }
+}
+
+%button-white {
+  @extend %button;
+  background-color: $color-lightest;
+  color: #000000;
+
+  &:before {
+    border: #000000 solid 2px;
+  }
+
+  &:hover::before {
+    background-color: #000000;
+  }
+}
+
 @mixin scrollbars() {
   & {
     scrollbar-width: auto;

@@ -6,9 +6,25 @@ block variables
 block content
   .home
     .home__wrapper
-      section.home__header
-        .home__section__row
+      section.home__section__header
+        .home__section__row__header
           h1.home__page__title= meta.title
           .home__image__stream
             each media in randomImages
               img.home__stream__media(src='img/200x200/' + media)
+
+      section.home__section
+        .home__section__row
+          .home__intro__wrapper
+            .home__empty
+            .home__intro__item
+              h2.filter__description__title= page.title
+              p.filter__description= page.intro
+
+          .home__intro__wrapper
+            .home__empty
+            .home__intro__item
+              h2.filter__description__title= page.workTitle
+              p.filter__description= page.workDescription
+              a(href='/face')
+                button.start__button= page.startButton

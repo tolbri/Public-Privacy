@@ -19,7 +19,7 @@ const client = new MongoClient(uri, {
 const handleRequest = async (req, template) => {
   const lang = req.language;
 
-  const [language, meta, navigation, filterPage, filter] = await Promise.all([
+  const [language, meta, navigation, filterPage, page] = await Promise.all([
     YAML.parse(fs.readFileSync('./resources/language.yml', 'utf8')),
     YAML.parse(fs.readFileSync('./resources/' + lang + '/meta.yml', 'utf8')),
     YAML.parse(
@@ -107,7 +107,7 @@ const handleRequest = async (req, template) => {
     meta,
     navigation,
     filterPage,
-    filter,
+    page,
     template,
     randomImages,
     chart,

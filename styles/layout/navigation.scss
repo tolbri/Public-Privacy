@@ -7,14 +7,20 @@ header {
   display: flex;
   justify-content: center;
 
+
   @include media('<=phone') {
     padding-right: 4px;
   }
 }
 
+.background__wrapper {
+  width: 100%;
+  background-color: $color-lightest;
+}
+
 .navigation {
   @extend %container;
-  background-color: $color-lightest;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +33,7 @@ header {
   letter-spacing: 2px;
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 100%;
     left: 50%;
@@ -47,7 +53,7 @@ header {
   }
 }
 
-.navigation__home__wrapper{
+.navigation__home__wrapper {
   display: flex;
   flex-direction: row;
 }
@@ -79,7 +85,7 @@ header {
   font-weight: bold;
 }
 
-.navigation__logo{
+.navigation__logo {
   stroke: $color-darkest;
   width: 3rem;
   margin-right: 2rem;
@@ -152,15 +158,14 @@ header {
 }
 
 .navigation__langauge__item {
-
-  &:not(:last-child):after{
-    content: "/";
+  &:not(:last-child):after {
+    content: '/';
     padding: 0 10px;
   }
 }
 
-.navigation__langauge__item__active a{
-  transition: opacity .5s;
+.navigation__langauge__item__active a {
+  transition: opacity 0.5s;
   opacity: 50%;
 }
 

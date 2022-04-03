@@ -2,13 +2,25 @@
   @extend %container;
 }
 
-.home__section {
+.home__section__header {
+  @extend %section;
+  height: calc(100vh - 30rem);
+  display: flex;
+  justify-content: center;
+}
+
+.filter__section {
   @extend %section;
 }
 
-.home__section__row {
+.home__section__row__header {
   @extend %row;
+  margin: auto 0;
   flex-direction: column;
+
+  @include media('<=phone') {
+    margin: 0;
+  }
 }
 
 .home__page__title {
@@ -17,17 +29,56 @@
 }
 
 .home__image__stream {
-  position: relative;
-  height: 20rem;
-  width: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
 }
 
 .home__stream__media {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  transform: translate(-50%, -50%);
   border-radius: 6px;
-  filter: brightness(95%);
+  filter: grayscale(100%) brightness(50%);
   width: 200px;
   height: 200px;
+  border: $color-darkest 0.5px solid;
+}
+
+.home__section__row {
+  @extend %row;
+  flex-direction: column;
+}
+
+.home__intro__wrapper {
+  width: 100%;
+  margin-top: 16rem;
+  display: flex;
+}
+
+.home__empty {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-right: 2rem;
+
+  @include media('<phone') {
+    display: none;
+  }
+}
+
+.home__intro__item {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding-left: 2rem;
+
+  @include media('<phone') {
+    padding-left: 0;
+    width: 100%;
+  }
+}
+
+.start__button {
+  @extend %button-black;
+  margin-top: 4rem;
 }
