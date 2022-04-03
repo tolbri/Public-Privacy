@@ -1,0 +1,85 @@
+.about__wrapper {
+  @extend %container;
+}
+
+.about__section {
+  @extend %section;
+}
+
+.about__section__row {
+  @extend %row;
+}
+
+.about__section__name__wrapper {
+  width: 40%;
+
+  @include media('<=phone') {
+    width: 100%;
+  }
+}
+
+.about__section__name {
+  @extend %title-22;
+}
+
+.about__section__content__wrapper {
+  width: 60%;
+
+  @include media('<=phone') {
+    width: 100%;
+  }
+}
+
+.about__section__content__title {
+  @extend %title-24;
+}
+
+.about__section__content {
+  @extend %description-20;
+  margin-bottom: 2rem;
+}
+
+.about__section__tools__wrapper {
+  display: flex;
+  width: 60%;
+
+  @include media('<=phone') {
+    width: 100%;
+    flex-flow: wrap;
+  }
+}
+
+.about__tools__wrapper {
+  width: 50%;
+  margin-bottom: 4rem;
+
+  @include media('<=phone') {
+    width: 100%;
+  }
+}
+
+.about__tool__link {
+  @extend %description-20;
+  font-style: italic;
+  color: $color-primary;
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-primary;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

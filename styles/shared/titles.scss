@@ -11,6 +11,17 @@
   }
 }
 
+%title-24 {
+  font-size: 2.4rem;
+  line-height: 1.8;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
+}
+
 %title-22 {
   font-family: $prettywise;
   font-size: 2.2rem;

@@ -1,0 +1,28 @@
+extends ../index
+
+block variables
+  - var template = template;
+
+block content
+  .about
+    .about__wrapper
+      each section in page.sections
+        section.about__section
+          .about__section__row
+            .about__section__name__wrapper
+              h2.about__section__name= section.title
+            .about__section__content__wrapper
+              each content in section.content
+                h3.about__section__content__title= content.title
+                p.about__section__content= content.content
+
+      section.about__section
+        .about__section__row
+          .about__section__name__wrapper
+            h2.about__section__name= page.toolsTitle
+          .about__section__tools__wrapper
+            each tool in page.tools
+              .about__tools__wrapper
+                h3.about__section__content__title= tool.title
+                p.about__section__content= tool.description
+                a.about__tool__link(href=tool.link)= page.toolLink

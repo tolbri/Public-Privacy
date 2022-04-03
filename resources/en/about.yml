@@ -1,0 +1,35 @@
+sections:
+  - title: About
+    content:
+      - title: The Public Privacy Project
+        content: Content
+
+  - title: The Topic
+    content:
+      - title: Shein & Gamification
+        content: Content
+
+      - title: Data Privacy
+        content: Content
+
+  - title: Methodology
+    content:
+      - title: Data Collection
+        content: Content
+
+      - title: Data Analysis
+        content: Content
+
+      - title: Data Visualization
+        content: Content
+
+toolsTitle: Tools Used
+toolLink: Show
+tools:
+  - title: Tools Used
+    description: Description
+    link: '/'
+
+  - title: Tools Used
+    description: Description
+    link: '/'
