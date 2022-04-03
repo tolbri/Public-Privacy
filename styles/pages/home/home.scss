@@ -42,6 +42,7 @@
   position: fixed;
   inset: 0;
   z-index: 1;
+  transform-style: preserve-3d;
 }
 
 .home__stream__media {
@@ -51,7 +52,9 @@
   filter: grayscale(100%) brightness(50%);
   width: 200px;
   height: 200px;
+
   border: $color-darkest 0.5px solid;
+  z-index: 1;
 }
 
 .home__section__row {

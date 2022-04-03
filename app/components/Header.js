@@ -35,15 +35,15 @@ export default class Header extends Component {
   animateImages() {
     let stagger;
     if (Detection.isPhone()) {
-      stagger = 6;
+      stagger = 1;
     } else {
-      stagger = 3;
+      stagger = 0.5;
     }
 
     const numberOfTargets = this.media.length;
-    const duration = this.media.length;
+    const duration = this.media.length / 4;
 
-    const repeatDelay = duration * (numberOfTargets - 1);
+    console.log(duration);
 
     GSAP.fromTo(
       this.media,
@@ -51,26 +51,28 @@ export default class Header extends Component {
         scale: 2,
         x: -400,
         y: this.streamHeight,
+        z: 1,
         rotateZ: 90,
         duration: duration,
         ease: 'slow (0.1, 0.7, false)',
         stagger: {
           each: stagger,
-          repeat: 1,
-          repeatDelay: repeatDelay,
+          repeat: -1,
+          repeatDelay: duration,
         },
       },
       {
         scale: 0.5,
         x: this.streamWidth + 200,
         y: this.streamHeight / 2,
+        z: -1,
         rotateZ: -45,
         duration: duration,
         ease: 'slow (0.1, 0.7, false)',
         stagger: {
           each: stagger,
-          repeat: 1,
-          repeatDelay: repeatDelay,
+          repeat: -1,
+          repeatDelay: duration,
         },
       }
     );
