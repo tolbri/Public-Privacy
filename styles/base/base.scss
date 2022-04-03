@@ -110,3 +110,9 @@ a {
 .wrap {
   border-right: 0.08em solid $color-primary;
 }
+
+.mobile__only {
+  @include media('>phone') {
+    display: none;
+  }
+}

@@ -1,9 +1,14 @@
 #prettier-ignore-start
+titlePrefix: Dein
 title:
-  - Offen Privat
-  - Public Privacy
-  - Privacy Pubblica
-  - Privado Aberto
+  - ' Gesicht'
+  - ' Schlafzimmer'
+  - 'e Intimität'
+  - 'e Gewohnheit'
+  - 'e Freunde'
+  - 'e Religion'
+  - ' Style'
+  - 'e Privatsphäre'
 #prettier-ignore-end
 
 introTitle: What's this about?

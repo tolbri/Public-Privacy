@@ -1,10 +1,14 @@
 #prettier-ignore-start
+titlePrefix: Your
 title:
-  - Your photos
-  - Your face
-  - Your house
-  - Your friends
-  - Your privacy
+  - ' Face'
+  - ' Bedroom'
+  - ' Intimacy'
+  - ' Habits'
+  - ' Friends'
+  - ' Religion'
+  - ' Style'
+  - ' Privacy'
 #prettier-ignore-end
 
 introTitle: What's this about?

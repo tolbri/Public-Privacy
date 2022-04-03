@@ -6,7 +6,7 @@
   text-transform: capitalize;
 
   @include media('<phone') {
-    font-size: 10rem;
+    font-size: 8rem;
     margin-bottom: 8rem;
   }
 }

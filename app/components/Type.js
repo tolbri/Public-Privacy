@@ -31,6 +31,11 @@ export default class Type {
 
     if (!this.isDeleting && this.txt === fullTxt) {
       delta = this.period;
+
+      if (i === this.toRotate.length - 1) {
+        delta = delta * 3;
+      }
+
       this.isDeleting = true;
     } else if (this.isDeleting && this.txt === '') {
       this.isDeleting = false;
