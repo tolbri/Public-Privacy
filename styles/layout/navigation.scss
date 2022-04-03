@@ -7,7 +7,6 @@ header {
   display: flex;
   justify-content: center;
 
-
   @include media('<=phone') {
     padding-right: 4px;
   }
@@ -125,10 +124,11 @@ header {
 }
 
 .navigation__list__item__active {
-  opacity: 50%;
+  color: $color-primary;
+  //opacity: 50%;
   @include media('<=phone') {
     opacity: 100%;
-    border: $color-darkest solid 1px;
+    border: $color-primary solid 1px;
     padding: 1rem 2rem;
   }
 }
@@ -165,8 +165,7 @@ header {
 }
 
 .navigation__langauge__item__active a {
-  transition: opacity 0.5s;
-  opacity: 50%;
+  color: $color-primary;
 }
 
 #overlay {
