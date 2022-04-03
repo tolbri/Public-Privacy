@@ -28,7 +28,7 @@ block content
                   .filter__gallery__comment
                     .filter__comment__header
                       p.filter__total__spend= filterPage.bill + ': '
-                        span= randomImages[0].local_image_id
+                        span= randomImages[0].totalSpend
                         | €
                       img.filter__flag(
                         src='flags/' + randomImages[0].comment_data.country + '.svg'
@@ -47,9 +47,9 @@ block content
                     data-review=media.comment_data.content,
                     data-date=moment(media.comment_data.comment_time).format('DD.MM.YYYY'),
                     data-country=media.comment_data.country,
-                    data-spend=media.local_image_id
+                    data-spend=media.totalSpend
                   )
-                    span= media.local_image_id
+                    span= media.totalSpend
 
           unless template === 'tattoo'
             .filter__next__wrapper

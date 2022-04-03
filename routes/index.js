@@ -228,8 +228,6 @@ router.get('/about', async function (req, res, next) {
   const template = 'about';
   const defaults = await handleRequest(req, template);
 
-  console.log(defaults.page);
-
   res.render('pages/about', {
     ...defaults,
   });
