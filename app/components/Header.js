@@ -40,10 +40,7 @@ export default class Header extends Component {
       stagger = 0.5;
     }
 
-    const numberOfTargets = this.media.length;
     const duration = this.media.length / 4;
-
-    console.log(duration);
 
     GSAP.fromTo(
       this.media,
