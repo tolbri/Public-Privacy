@@ -1,4 +1,78 @@
 footer {
   @extend %container;
   padding: 9rem 0;
+
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+  }
+}
+
+.footer__item__wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @include media('<=phone') {
+    flex-flow: wrap;
+  }
+}
+
+.footer__item {
+  @extend %description-20;
+
+  @include media('<=phone') {
+    width: 50%;
+  }
+}
+
+.footer__item__cookie {
+  @extend %description-20;
+  font-weight: lighter;
+  width: 60%;
+
+  @include media('<=phone') {
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+.footer__project__title {
+  @extend %title-20;
+}
+
+.footer__list__item {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer__link {
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-darkest;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 }

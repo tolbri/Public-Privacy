@@ -1,4 +1,21 @@
 footer
-  h1 Footer
-
-  // TODO: add footer elements
+  .footer__item__wrapper
+    ul.footer__item
+      li.footer__list__item
+        a.footer__link(href='/about', target='_blank')= meta.about
+      li.footer__list__item
+        a.footer__link(
+          href='https://github.com/tolbri/public-privacy',
+          target='_blank'
+        ) Github
+    ul.footer__item
+      li.footer__list__item
+        a.footer__link(href='https://timolbrich.com', target='_blank')= meta.portfolio
+      li.footer__list__item
+        a.footer__link(
+          href='https://www.linkedin.com/in/tim-olbrich/',
+          target='_blank'
+        ) Linkedin
+    ul.footer__item__cookie
+      li.footer__list__item
+        p= meta.cookie
