@@ -29,7 +29,8 @@ footer {
   @extend %description-20;
 
   @include media('<=phone') {
-    width: 50%;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -39,7 +40,9 @@ footer {
   width: 60%;
 
   @include media('<=phone') {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
     margin-top: 2rem;
     font-size: 1.8rem;
   }

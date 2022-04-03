@@ -1,5 +1,11 @@
-title: What's this about?
-intro: Desc
+#prettier-ignore-start
+title:
+  - Public Privacy
+  - Offen Privat
+#prettier-ignore-end
+
+introTitle: What's this about?
+introDescription: Desc
 
 workTitle: How does it work?
 workDescription: Like this

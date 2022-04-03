@@ -7,6 +7,10 @@
   height: calc(100vh - 30rem);
   display: flex;
   justify-content: center;
+
+  @include media('<=phone') {
+    justify-content: start;
+  }
 }
 
 .filter__section {
@@ -25,7 +29,13 @@
 
 .home__page__title {
   @extend %title-160;
+  color: $color-primary;
   margin: 8rem auto;
+  text-align: center;
+
+  @include media('<=phone') {
+    text-align: left;
+  }
 }
 
 .home__image__stream {

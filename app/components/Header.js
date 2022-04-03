@@ -2,6 +2,7 @@ import GSAP from 'gsap';
 
 import Component from '../classes/Component';
 import Detection from '../classes/Detection';
+import Type from './Type';
 
 export default class Header extends Component {
   constructor(template) {
@@ -27,8 +28,8 @@ export default class Header extends Component {
 
     this.media = this.elements.media;
     this.template = template;
-    this.boundingRectangle();
     this.animateImages();
+    this.animateType();
   }
 
   animateImages() {
@@ -75,10 +76,14 @@ export default class Header extends Component {
     );
   }
 
-  boundingRectangle() {
-    const box = this.elements.stream.getBoundingClientRect();
+  animateType() {
+    const typeElement = document.getElementById('typewrite');
 
-    /* this.streamWidth = box.width;
-    this.streamWidth = box.height; */
+    const toRotate = typeElement.getAttribute('data-type');
+    const period = typeElement.getAttribute('data-period');
+
+    if (toRotate) {
+      this.type = new Type(typeElement, JSON.parse(toRotate), period);
+    }
   }
 }
