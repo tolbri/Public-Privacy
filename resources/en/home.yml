@@ -11,10 +11,13 @@ title:
   - ' Privacy'
 #prettier-ignore-end
 
-introTitle: What's this about?
+introTitle: What?
 introDescription: Desc
 
-workTitle: How does it work?
-workDescription: Like this
+workTitle: How?
+workDescription:
+  - paragraph: 'The <span data-highlight="comment">Comment</span> test <span data-highlight="date">Date</span> contains an <span data-highlight="preview">Image</span> and <span data-highlight="reward">Reward</span> also a <span data-highlight="spend">Spend</span>'
+  - paragraph: Test
+dummyContent: Tester
 
 startButton: Start

@@ -66,6 +66,8 @@ class App {
   }
 
   async onChange({ url, push = true }) {
+    document.querySelector('.content').scrollTo({ top: 0, behavior: 'smooth' });
+
     if (this.gallery) {
       await this.gallery.destroy();
     }

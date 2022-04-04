@@ -10,6 +10,7 @@ export default class Header extends Component {
       elements: {
         stream: '.home__image__stream',
         media: '.home__stream__media',
+        description: '.home__filter__description',
       },
     });
 
@@ -26,10 +27,13 @@ export default class Header extends Component {
     this.streamWidth = window.innerWidth;
     this.streamHeight = window.innerHeight;
 
+    this.description = this.elements.description;
     this.media = this.elements.media;
     this.template = template;
+
     this.animateImages();
     this.animateType();
+    this.addSample();
   }
 
   animateImages() {
@@ -84,5 +88,60 @@ export default class Header extends Component {
     if (toRotate) {
       this.type = new Type(typeElement, JSON.parse(toRotate), period);
     }
+  }
+
+  showHighlight() {
+    const currentPointer = document.querySelector('.home__pointer')
+    if (currentPointer) {
+      currentPointer.remove()
+    }
+
+    const id = this.getAttribute('data-highlight');
+    const target = document.querySelector('#' + id);
+
+    const elementsToHide = document.querySelectorAll(
+      '#preview, #spend, #reward, #date, #comment'
+    );
+    elementsToHide.forEach((elem) => {
+      elem.style.opacity = '0.2';
+    });
+
+    const bordersToHide = document.querySelectorAll(
+      '.home__preview__wrapper, .filter__gallery__comment__wrapper, .filter__comment__header'
+    );
+    bordersToHide.forEach((elem) => {
+      elem.style.borderColor = 'rgba(0,0,0, 0.5)';
+    });
+
+    const box = target.getBoundingClientRect();
+    const position = {
+      x: box.left + box.width / 2,
+      y: box.top + box.height / 2,
+    };
+
+    const pointer = document.createElement('div');
+    pointer.classList.add('home__pointer');
+    document.body.append(pointer);
+    pointer.style.left = position.x + 'px';
+    pointer.style.top = position.y + 'px';
+
+    target.style.opacity = '1';
+  }
+
+  addSample() {
+    this.description.forEach((elem) => {
+      const html = elem.textContent;
+      const domElement = document.createElement('div');
+
+      domElement.classList.add('home__filter__description');
+      domElement.innerHTML = html;
+
+      elem.replaceWith(domElement);
+    });
+
+    const buttons = document.querySelectorAll('[data-highlight]');
+    buttons.forEach((button) => {
+      button.addEventListener('click', this.showHighlight);
+    });
   }
 }

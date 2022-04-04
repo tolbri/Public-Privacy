@@ -80,7 +80,7 @@ export default class Gallery extends Component {
 
   async destroy() {
     this.removeAllListeners();
-    document.querySelector('.content').scrollTo({ top: 0, behavior: 'smooth' });
+
     if (this.charts) {
       this.charts.destroy();
     }

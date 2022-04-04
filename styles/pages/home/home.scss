@@ -65,6 +65,10 @@
   margin-top: 16rem;
   display: flex;
   z-index: 2;
+
+  @include media('<phone') {
+    flex-direction: column;
+  }
 }
 
 .home__empty {
@@ -72,6 +76,7 @@
   flex-direction: column;
   width: 40%;
   padding-right: 2rem;
+  margin-right: 2rem;
 
   @include media('<phone') {
     display: none;
@@ -93,4 +98,78 @@
 .start__button {
   @extend %button-black;
   margin-top: 4rem;
+}
+
+.home__preview__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: calc(100vh - 16rem);
+  width: 40%;
+  border: $color-darkest solid 1px;
+  padding: 2rem;
+  margin-right: 2rem;
+
+  @include media('<phone') {
+    width: 100%;
+    flex-direction: row;
+    margin: 0 0 4rem 0;
+  }
+}
+
+.home__filter__description__title {
+  @extend %title-22;
+}
+
+.home__filter__description {
+  @extend %description-20;
+  margin-bottom: 2rem;
+}
+
+.home__filter__description span {
+  color: $color-primary;
+  cursor: pointer;
+
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-primary;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+.home__pointer {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: #c53826;
+  animation-name: pointer;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+}
+
+@keyframes pointer {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
