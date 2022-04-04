@@ -1,7 +1,8 @@
 definition: Definition
 description: Description
 dataset: Collection
-bill: Total
+bill: Spent
+reward: Reward
 demography: Demography
 countryChart: Top 3 Countries of Origin
 deviceChart: Distribution of used Devices

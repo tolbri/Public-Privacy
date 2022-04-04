@@ -119,8 +119,19 @@ const getComments = async (collection) => {
 
   const db = client.db('public-privacy');
   const dbCollection = db.collection(collection);
+  const response = await dbCollection.find({}).toArray();
 
-  return await dbCollection.find({}).toArray();
+  const result = await Promise.all(
+    response.map(async (elem) => {
+      const points = Math.ceil(elem.totalSpend);
+      const reward = (points + elem.totalPoints) / 100;
+      elem.totalPoints = reward.toFixed(2);
+
+      return elem;
+    })
+  );
+
+  return result;
 };
 
 const getRandomImages = async (folder) => {

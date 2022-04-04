@@ -30,6 +30,9 @@ block content
                       p.filter__total__spend= filterPage.bill + ': '
                         span= randomImages[0].totalSpend
                         | €
+                      p.filter__total__spend= filterPage.reward + ': '
+                        span= randomImages[0].totalPoints
+                        | €
                       img.filter__flag(
                         src='flags/' + randomImages[0].comment_data.country + '.svg'
                       )
