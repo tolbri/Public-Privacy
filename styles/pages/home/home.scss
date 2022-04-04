@@ -117,16 +117,16 @@
   }
 }
 
-.home__filter__description__title {
+.home__description__title {
   @extend %title-22;
 }
 
-.home__filter__description {
+.home__description {
   @extend %description-20;
   margin-bottom: 2rem;
 }
 
-.home__filter__description span {
+.home__description span {
   color: $color-primary;
   cursor: pointer;
 

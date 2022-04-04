@@ -21,8 +21,8 @@ block content
           .home__intro__wrapper
             .home__empty
             .home__intro__item
-              h2.home__filter__description__title= page.introTitle
-              p.home__filter__description= page.introDescription
+              h2.home__description__title= page.introTitle
+              p.home__description= page.introDescription
 
           .home__intro__wrapper
             .home__preview__wrapper
@@ -58,9 +58,9 @@ block content
                     p#date.filter__date= filterPage.published + ': ' + moment(Date.now()).format('DD.MM.YYYY')
                   p#comment.filter__comment__content= page.dummyContent
             .home__intro__item
-              h2.home__filter__description__title= page.workTitle
+              h2.home__description__title= page.workTitle
               each text in page.workDescription
-                p.home__filter__description= text.paragraph
+                p.home__description= text.paragraph
               div
                 a(href='/face')
                   button.start__button= page.startButton

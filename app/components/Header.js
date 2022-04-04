@@ -10,7 +10,7 @@ export default class Header extends Component {
       elements: {
         stream: '.home__image__stream',
         media: '.home__stream__media',
-        description: '.home__filter__description',
+        description: '.home__description',
       },
     });
 
@@ -91,9 +91,9 @@ export default class Header extends Component {
   }
 
   showHighlight() {
-    const currentPointer = document.querySelector('.home__pointer')
+    const currentPointer = document.querySelector('.home__pointer');
     if (currentPointer) {
-      currentPointer.remove()
+      currentPointer.remove();
     }
 
     const id = this.getAttribute('data-highlight');
@@ -133,7 +133,7 @@ export default class Header extends Component {
       const html = elem.textContent;
       const domElement = document.createElement('div');
 
-      domElement.classList.add('home__filter__description');
+      domElement.classList.add('home__description');
       domElement.innerHTML = html;
 
       elem.replaceWith(domElement);
