@@ -27,16 +27,32 @@ block content
                 .filter__gallery__comment__wrapper
                   .filter__gallery__comment
                     .filter__comment__header
-                      p.filter__total__spend= filterPage.bill + ': '
-                        span= randomImages[0].totalSpend
+                      .filter__total__spend.filter__total__spend__red
+                        svg.filter__comment__icon(
+                          xmlns='http://www.w3.org/2000/svg',
+                          viewBox='0 0 30 30'
+                        )
+                          path(
+                            stroke-linecap='round',
+                            stroke-linejoin='round',
+                            d='M 4 4 A 2 2 0 0 0 3.6132812 4.0390625 C 3.602689 4.0411905 3.5925658 4.0445769 3.5820312 4.046875 A 2 2 0 0 0 2 6 L 2 18 A 2 2 0 0 0 2.0390625 18.386719 C 2.0411905 18.397311 2.0445769 18.407434 2.046875 18.417969 A 2 2 0 0 0 4 20 L 26 20 A 2 2 0 0 0 26.386719 19.960938 C 26.397311 19.95881 26.407434 19.955423 26.417969 19.953125 A 2 2 0 0 0 28 18 L 28 6 A 2 2 0 0 0 27.960938 5.6132812 C 27.95881 5.602689 27.955423 5.5925658 27.953125 5.5820312 A 2 2 0 0 0 26 4 L 4 4 z M 6 6 L 24 6 A 2 2 0 0 0 26 8 L 26 16 A 2 2 0 0 0 24 18 L 6 18 A 2 2 0 0 0 4 16 L 4 8 A 2 2 0 0 0 6 6 z M 15 8 C 12.791 8 11 10.015 11 12.5 C 11 13.922 11.597672 15.175 12.513672 16 L 17.486328 16 C 18.402328 15.175 19 13.922 19 12.5 C 19 10.015 17.209 8 15 8 z M 7 11 A 1 1 0 0 0 6 12 A 1 1 0 0 0 7 13 A 1 1 0 0 0 8 12 A 1 1 0 0 0 7 11 z M 23 11 A 1 1 0 0 0 22 12 A 1 1 0 0 0 23 13 A 1 1 0 0 0 24 12 A 1 1 0 0 0 23 11 z M 25.984375 21.986328 A 1.0001 1.0001 0 0 0 25.839844 22 L 25 22 L 25 23 L 25 24 C 24.161287 24 23.445653 24.516349 23.148438 25.248047 C 22.192866 24.892189 20.997093 24.471983 19.449219 24.037109 C 15.816625 23.016539 10.602564 22 4 22 A 1.0001 1.0001 0 1 0 4 24 C 10.397436 24 15.422047 24.983461 18.908203 25.962891 C 20.651281 26.452605 22.007411 26.940631 22.966797 27.308594 C 23.44649 27.492575 23.826484 27.646222 24.117188 27.759766 C 24.262539 27.816536 24.383033 27.862847 24.5 27.902344 C 24.602773 27.937047 24.672714 27.980779 24.917969 27.992188 C 24.945832 27.994703 24.971841 28.009766 25 28.009766 C 26.076132 28.009766 26.936821 27.158992 26.990234 26.101562 A 1.0001 1.0001 0 0 0 27 25.960938 L 27 24 L 27 23 L 27 22 L 26.154297 22 A 1.0001 1.0001 0 0 0 25.984375 21.986328 z'
+                          )
+                        span.filter__total__spend__value= randomImages[0].totalSpend
                         | €
-                      p.filter__total__spend= filterPage.reward + ': '
-                        span= randomImages[0].totalPoints
+                      .filter__total__spend.filter__total__spend__green
+                        svg.filter__comment__icon(
+                          xmlns='http://www.w3.org/2000/svg',
+                          viewBox='0 0 64 64'
+                        )
+                          path(
+                            stroke-linecap='round',
+                            stroke-linejoin='round',
+                            d='M 30 2 C 25.029 2 21 6.029 21 11 C 21 12.439 21.341359 13.796 21.943359 15 L 38.056641 15 C 38.658641 13.796 39 12.439 39 11 C 39 6.029 34.971 2 30 2 z M 5 11 C 5 11 2 13.953047 2 17.123047 C 2 21.835047 5 23 5 23 L 8 19 C 8 19 5 18 5 16 C 5 14 6 12 6 12 L 5 11 z M 40.753906 13.990234 L 39 18 L 20 17 L 19.445312 14.783203 C 10.227312 17.926203 6 24.898 6 33 C 6 33.484541 6.0296211 34.026242 6.0742188 34.597656 C 6.0974129 34.916837 6.1289484 35.231763 6.1660156 35.544922 C 7.0121455 43.4263 11 57 11 57 L 17 57 L 18.957031 50.736328 C 21.4852 51.548038 24.335017 52 27.5 52 C 30.432279 52 33.155127 51.844801 35.673828 51.572266 L 38 57 L 44 57 L 45.021484 49.845703 C 56.059724 46.907324 61 42 61 42 L 61 32 L 57.142578 31.035156 C 55.885578 32.163156 54.445 33.278 53 34 L 51.824219 32.236328 C 54.460462 29.578878 58.921875 24.06974 58.921875 17 L 51.267578 19.199219 C 48.675769 16.838531 45.19274 15.02706 40.753906 13.990234 z'
+                          )
+                        span.filter__total__reward__value= randomImages[0].totalPoints
                         | €
-                      img.filter__flag(
-                        src='flags/' + randomImages[0].comment_data.country + '.svg'
-                      )
-                      p.filter__date= moment(randomImages[0].comment_data.comment_time).format('DD.MM.YYYY')
+
+                      p.filter__date= filterPage.published + ': ' + moment(randomImages[0].comment_data.comment_time).format('DD.MM.YYYY')
                     p.filter__comment__content= randomImages[0].comment_data.content
             .filter__gallery
               each media in randomImages
@@ -48,11 +64,14 @@ block content
                   .filter__overlay(
                     data-image=template + '/' + template + '-' + media.local_image_id + '.webp',
                     data-review=media.comment_data.content,
-                    data-date=moment(media.comment_data.comment_time).format('DD.MM.YYYY'),
+                    data-date=filterPage.published + ': ' + moment(media.comment_data.comment_time).format('DD.MM.YYYY'),
                     data-country=media.comment_data.country,
-                    data-spend=media.totalSpend
+                    data-spend=media.totalSpend,
+                    data-reward=media.totalPoints
                   )
-                    span= media.totalSpend
+                    img.filter__flag(
+                      src='flags/' + media.comment_data.country + '.svg'
+                    )
 
           unless template === 'tattoo'
             .filter__next__wrapper

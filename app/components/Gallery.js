@@ -58,19 +58,24 @@ export default class Gallery extends Component {
     const commentContent = document.querySelector('.filter__comment__content');
     const commentDate = document.querySelector('.filter__date');
     const commentCountry = document.querySelector('.filter__flag');
-    const commentSpend = document.querySelector('.filter__total__spend span');
+    const commentSpend = document.querySelector('.filter__total__spend__value');
+    const commentReward = document.querySelector(
+      '.filter__total__reward__value'
+    );
 
     const image = this.getAttribute('data-image');
     const content = this.getAttribute('data-review');
     const date = this.getAttribute('data-date');
     const country = this.getAttribute('data-country');
     const spend = this.getAttribute('data-spend');
+    const reward = this.getAttribute('data-reward');
 
     commentImage.setAttribute('src', './img/600x800/' + image);
     commentContent.innerHTML = content;
     commentDate.innerHTML = date;
     commentCountry.setAttribute('src', './flags/' + country + '.svg');
     commentSpend.innerHTML = spend;
+    commentReward.innerHTML = reward;
   }
 
   async destroy() {

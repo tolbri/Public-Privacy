@@ -1,6 +1,7 @@
 definition: Definition
 description: Description
 dataset: Collection
+published: Published
 bill: Spent
 reward: Reward
 demography: Demography

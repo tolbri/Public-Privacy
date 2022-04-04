@@ -127,6 +127,10 @@ const getComments = async (collection) => {
       const reward = (points + elem.totalPoints) / 100;
       elem.totalPoints = reward.toFixed(2);
 
+      if (elem.totalSpend === 0) {
+        elem.totalSpend = '--';
+      }
+
       return elem;
     })
   );
