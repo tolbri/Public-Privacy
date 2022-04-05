@@ -12,9 +12,9 @@ block content
             span= page.titlePrefix
             br.mobile__only
             span#typewrite(data-period='2000', data-type=page.title)
-          .home__image__stream
-            each media in randomImages
-              img.home__stream__media(src='img/200x200/' + media)
+        .home__image__stream
+          each media in randomImages
+            img.home__stream__media(src='img/200x200/' + media)
 
       section.home__section
         .home__section__row

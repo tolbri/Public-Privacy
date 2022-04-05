@@ -16,8 +16,6 @@ html {
   line-height: 1;
   background: $color-lightest;
   color: $color-dark;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
 
   @include media('<phone') {
     font-size: calc(100vw / 480 * 10);
@@ -26,6 +24,8 @@ html {
 
 body {
   @extend %cover;
+  @include scrollbars;
+  scroll-behavior: smooth;
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -95,12 +95,7 @@ a {
 }
 
 .content {
-  transform: translateZ(0px);
-  height: 100vh;
-  // overflow: auto;
   padding-top: 15.2rem;
-
-  @include scrollbars;
 
   @include media('<phone') {
     padding-top: 8rem;

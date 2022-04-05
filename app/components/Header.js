@@ -50,9 +50,9 @@ export default class Header extends Component {
       this.media,
       {
         scale: 2,
-        x: -400,
-        y: this.streamHeight,
-        z: 1,
+        x: -410,
+        y: this.streamHeight - this.streamHeight / 4,
+        z: 0,
         rotateZ: 90,
         duration: duration,
         ease: 'slow (0.1, 0.7, false)',

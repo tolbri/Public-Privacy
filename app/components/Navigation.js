@@ -32,7 +32,7 @@ export default class Navigation extends Component {
     const navigation = document.querySelector('.navigation');
     const timeline = GSAP.timeline({
       scrollTrigger: {
-        scroller: '.content',
+        scroller: 'body',
         trigger: '#trigger',
         start: 'top 80rem',
         end: '+=50',

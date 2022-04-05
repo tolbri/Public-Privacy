@@ -24,7 +24,7 @@ export default class Gallery extends Component {
 
   addCharts() {
     ScrollTrigger.create({
-      scroller: '.content',
+      scroller: 'body',
       trigger: '#country__chart',
       start: 'center 80%',
       // markers: true,
@@ -42,7 +42,7 @@ export default class Gallery extends Component {
       onEnter: (batch) => GSAP.to(batch, { autoAlpha: 1, stagger: 0.1 }),
       // also onLeave, onEnterBack, and onLeaveBack
       // also most normal ScrollTrigger values like start, end, etc.
-      scroller: '.content',
+      scroller: 'body',
       ease: 'expo.inOut',
     });
   }
