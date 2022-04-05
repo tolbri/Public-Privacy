@@ -68,6 +68,7 @@
 
   @include media('<phone') {
     flex-direction: column;
+    margin-top: 4rem;
   }
 }
 
@@ -86,7 +87,7 @@
 .home__intro__item {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 40%;
   padding-left: 2rem;
 
   @include media('<phone') {

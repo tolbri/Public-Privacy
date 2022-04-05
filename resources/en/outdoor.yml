@@ -1,9 +1,9 @@
 title: Outdoor
-definition: Images that show at least half of a person's face.
+definition: Images taken outside the own house.
 description: >
-  Showing your face and who you are in public is not an issue in most cultures.
-  However, what if you would lose control over its biometric data?
-  For example, 19% of the photo show facial data. By uploading your face to the internet,
-  you are not able to trace what happens to it.
+  Photographs can not only reveal how you look, but also what you like, your habits, or where you went for vacation.
+  Today, algorithms can already analyse when and where a picture was taken by taking the position of the sun into account
+  or identifying distinct landmarks. This collection shows images in which the model was removed, thus the location itself
+  becomes the subject.
 cover: './img/face/face-00002.jpg'
 next: '/people'

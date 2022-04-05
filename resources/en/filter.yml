@@ -4,12 +4,13 @@ dataset: Collection
 published: Published
 bill: Spent
 reward: Reward
-demography: Demography
+demography: Demographics
 countryChart: Top 3 Countries of Origin
 deviceChart: Distribution of used Devices
 chartDescription: >
-  Showing your face and who you are in public is not an issue in most cultures.
-  However, what if you would lose control over its biometric data?
-  For example, 19% of the photo show facial data. By uploading your face to the internet,
-  you are not able to trace what happens to it.
+  In every collection these charts give a better understanding of where the data-points comes from. In other words, the
+  first diagram lists the top three countries users logged in from to publish a review. All other countries are summed
+  in "Rest". Furthermore, the second diagram tells us what devices were used to publish the content. While
+  Android and iOS refer to smartphones and tablets, the third category (if available) consists of unknown devices and
+  access from desktop machines.
 nextButton: 'Next collection'

@@ -125,6 +125,7 @@ const getComments = async (collection) => {
     response.map(async (elem) => {
       const points = Math.ceil(elem.totalSpend);
       const reward = (points + elem.totalPoints) / 100;
+      elem.totalSpend = elem.totalSpend.toFixed(2);
       elem.totalPoints = reward.toFixed(2);
 
       if (elem.totalSpend === 0) {

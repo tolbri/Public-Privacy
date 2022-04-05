@@ -12,12 +12,20 @@ title:
 #prettier-ignore-end
 
 introTitle: What?
-introDescription: Desc
+introDescription: >
+  Over the past years fast fashion has become a more and more thriving business.
+  One of its main competitors is the online store SHEIN. To win new customers and keep existing ones,
+  SHEIN uses a point system. It rewards customers when they review products and upload photographs.
+  However, users often don’t take the matter of data privacy into consideration.
+  The following guide will outline some of the potential issues caused by publishing private content.
 
 workTitle: How?
 workDescription:
-  - paragraph: 'The <span data-highlight="comment">Comment</span> test <span data-highlight="date">Date</span> contains an <span data-highlight="preview">Image</span> and <span data-highlight="reward">Reward</span> also a <span data-highlight="spend">Spend</span>'
-  - paragraph: Test
-dummyContent: Tester
+  - paragraph: 'The reviews are displayed within a box next to other information. Probably the most prominent and interesting element is the <span data-highlight="preview">photograph</span> uploaded by the customer. Every category shows these images in a different way to underline the idea of privacy. '
+  - paragraph: 'Moreover, the red number indicates the total amount of  <span data-highlight="spend">money spent</span> by summarizing all orders of that particular customer.'
+  - paragraph: 'Similarly, the green value equals the  <span data-highlight="reward">gained rewards</span> in total assuming an average of 15 points per review.'
+  - paragraph: 'Besides that, the publication  <span data-highlight="date">date</span> shows the date a user reviewed the item.'
+  - paragraph: 'Finally, the  <span data-highlight="comment">content</span> of the review shows what the customer wrote in the review section.'
+dummyContent: This text is intended to review the product.
 
 startButton: Start

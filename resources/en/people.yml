@@ -1,9 +1,9 @@
 title: People
-definition: Images that show at least half of a person's face.
+definition: Photographs showing multiple people.
 description: >
-  Showing your face and who you are in public is not an issue in most cultures.
-  However, what if you would lose control over its biometric data?
-  For example, 19% of the photo show facial data. By uploading your face to the internet,
-  you are not able to trace what happens to it.
+  Data privacy often depends on the individual user. The information shared online often concern only the person who published them,
+  though sometimes we are not aware to expose someone else’s privacy. The following collection consists of images which show
+  two or more people. Machine learning was used to identify and tag the detected subjects. After that, the faces of the people
+  were made unrecognizable to protect their privacy.
 cover: './img/face/face-00002.jpg'
 next: '/religion'

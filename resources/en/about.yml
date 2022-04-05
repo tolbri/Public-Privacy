@@ -2,34 +2,194 @@ sections:
   - title: About
     content:
       - title: The Public Privacy Project
-        content: Content
+        content: >
+          The global fashion market went through a drastic disruption within the past decades.
+          A woman in 1950 had to spend around 9$ for a new dress, which nowadays equals to roughly 72$.
+          Today a dress costs around 12$ at Forever 21. Supply chains, materials and labor costs decreased and made it
+          possible to offer clothes for such a low price. Entering the digital era, companies explored ways to better
+          manage their resources, thus a just-in-time model evolved which produces what the consumer wishes and is
+          flexible enough to adjust to ever changing trends.
+
+      - title: SHEIN
+        content: >
+          SHEIN likes to put itself into scene with vibrant fashion shows, live streams, musicians, and big portion of drama.
+          Its website shows mostly extravagant models with curvy bodies in lewd. A t-shirt can be bought for as low as 3$,
+          jeans for 6$ and with countless promotions customers can save another 20% on their purchase. It manages multiple
+          websites, ships to 220 countries and operates from its headquarters in Guangzhou, China. Founded in 2008 by
+          Chris Xu, it started as a shop for wedding dresses. In 2012 it expanded to women’s wear and started its global
+          breakthrough in 2015. It utilizes sophisticated algorithms to predict trends and react on users in a fraction of
+          the time its competitors need. For example, once a trend is discovered it is automatically transformed into a
+          sewing pattern and send to one of the many subcontractors in Guangzhou. At the same time local garment facilitators
+          provide the necessary material to start production.
 
   - title: The Topic
     content:
       - title: Shein & Gamification
-        content: Content
+        content: >
+          Despite being a fashion store, SHEIN’s mobile applications are full of gamification elements which causes
+          controversies as a lot of teenagers get addicted to the casino-like experience. Everything in the app is
+          built around a point system, whereas 100 points equal to one US dollar. For every dollar spend on products,
+          customers receive one point back. However, most ways to gain points are free. For example, users receive
+          notifications to open the app on regular intervals, SHEIN calls it checking-in, to browse the product catalogue
+          and receive points for just spending time on the app. Another way to collect points is to participate in the
+          many livestreams and events held regularly to promote the brand. Luck based games like spinning a wheel of
+          fortune inside the app promise even more rewards. Overall, countless and constantly changing mechanisms try to
+          keep users bound to the app and ultimately to SHEIN’s products. After a product is purchased and delivered,
+          users have the option to review the items. A simple text review brings 5 points, while photos give an additional
+          10 points. Moreover, users who publish their body measurements and information on how well a product fits are
+          credited with an additional 2 points, which in total sums up to a maximum of 17 points per review. For SHEIN it
+          must be a welcome opportunity: The more users buy a product and post a photo, the more new customers and potential
+          buyers are attracted.
 
       - title: Data Privacy
-        content: Content
+        content: >
+          Data is omnipresent and we often cannot imagine living without it anymore: from the tiniest houses to the biggest
+          global companies, IoT devices, smartphones, social networks and search engines, data has become our daily companion.
+          What is missing is a general understanding for the impact of technology, algorithms, and data in general, because
+          the trend of transformation will rather speed up than stop. As a consequence, the gap between a few privileged
+          companies and the idea of democracy threatens to become insuperable. Apart from that, data gives us the power to
+          make our life more pleasant in many ways. All it requires is more responsibility.
 
   - title: Methodology
     content:
       - title: Data Collection
-        content: Content
+        content: >
+          SHEIN orders their products by category, but also provides various filters to narrow down the search. In addition
+          to that, it uses a pagination system which shows 120 products per page before the user must click a button to
+          load the next page. When investigating how a website structures its data, it can be interesting to compare both
+          desktop and mobile version. In the case of SHEIN, the products are listed in similar ways, however, the mobile
+          version does not use pagination. Instead, it infinitely loads new items once the user scrolls to a certain threshold.
+          For each product SHEIN has a detail list of attributes, these contain for example the materials, sizes, product
+          images and information about the model seen on the images. An important attribute is the product id. It allows
+          to uniquely identify the product across the catalogue which becomes an important aspect during the data analysis.
+          Furthermore, the most interesting section is built by the reviews users can give to each product. Only users who
+          bought a product can comment under it. The comment mainly contains text, optionally up to five photos and a size
+          component which allows users to give feedback on how good the item fits. Now a common approach could be the
+          creation of an automation that runs through every product page, saves the product attributes, and then crawls
+          through the comment section. However, a difficulty on SHEIN is that when a user browses the catalogue and the
+          web browser requests a page, it only loads the layout in the first step. In a second step, a script initiates
+          the request of the product itself. In other words, when crawling the website, the automation would need to wait
+          first for the initial layout and second for the complete loading of the content, which in the end turns out to
+          be slow. A different approach makes use of an undocumented API, an application programming interface. Usually,
+          an API provides easy access to developers when they want to connect their application with a another one. A
+          request is sent to the server which then sends an answer. SHEIN is using the same technology for its mobile site,
+          which can be detected by listening to the data traffic between the browser and the SHEIN server. By imitating
+          this request, the server’s answer can be processed directly and archived. It saves time, because the page does
+          not need to load and instead of requesting one comment at a time, 20 comments can be loaded at once. Before
+          starting with the data scraping, it is vital to determine which products should be scrapped. For example, it
+          could be a random list of products, the first n products per category or all products of one category.
+          For this project, the sitemap of SHEIN’s international website was loaded. A sitemap can be seen as a directory
+          with all pages of a website. Its function is to serve search engines as a lookup table, so they can index the
+          entries and provide more relevant search results to users. SHEIN’s sitemap contains around 900.000 items which
+          were loaded into a database. From there each product was accessed one by one to in a random manner to scrape
+          the product itself and its comments. In order to avoid blocking, a rotating proxy server redirected the traffic
+          from the host to the SHEIN server. In other words, every request looked like it would come from a different
+          source, to make it more difficult to block a specific origin of requests.
 
       - title: Data Analysis
-        content: Content
+        content: >
+          Gaining a broad overview of the collected dataset is often a helpful first step but narrowing down millions of
+          comments to the once relevant for the project requires some sort of filtering mechanism. A reproducible
+          framework which is comprehensible for the end user had to be developed. After initial thoughts on the dataset,
+          the most interesting elements turned out to be the photos users upload to their reviews. These photos cover a
+          broad group of users, countries, ages, and cultures while not being depended on language. Moreover, they stood
+          in direct connection to the user who uploaded it. In other words, a written comment cannot be validated for its
+          truthiness, nor does it reveal much about its author. A photo instead could show the author and take them into
+          the focus. However, while a lot of the images contain personal information in some sort, it is difficult to
+          empirically measure the level or kind of information, especially regarding an abstract mater like data privacy.
+          The challenge is to gain an objective look at the content of each image. Therefore, six categories were determined
+          to sort the photographic content. Each category dealt with another potential privacy issues as they reveal
+          information about the subject on the photo. Multiple categories could be applied to one image, because the
+          photo could reveal more than one aspect of data privacy. The challenging part is to take real data points and
+          sort them accordingly. Image recognition tools were eliminated early on, because they would rely on pretrained
+          data — an effort that would not be in proportion to the outcome. Rather than automating the process,
+          the project utilized a semi-automated workflow: a web interface loads the image, the viewer must observe it
+          and answer predefined questions about it. Based on the answer to these questions, the image will be tagged
+          with any of the six categories. To reduce false tagging, each image will be locked for 48 hours after its first
+          tagging. Afterwards it goes back to the pool of images, to be tagged again. Once an image is tagged at least
+          twice in the same category, it is considered valid. Although this scheme could run on a random pool of images,
+          it descends from the data point with the highest number of likes, as these are assumed to be more relevant for
+          SHEIN users. Applying this method 3400 comments and their images could be extracted and tagged.
 
       - title: Data Visualization
-        content: Content
+        content: >
+          Publishing private content is a delicate task. On one side it must be anonymized to protect personal information,
+          on the other side this project aims to visualize privacy issues. The designer’s role is to not only combine
+          both of these aspects, but also to deliver a clear and memorable message. Hence, the challenge of this project
+          is to isolate the privacy issues for each of the six image categories. During first tests the idea of measuring
+          privacy by calculating the percentage of pixels revealing such data was discarded, because it could not provide
+          the expected reading into the photographs. For example, a photograph taken in public reveals information about
+          the location of where it was taken. By counting how many pixels refer to the location, the percentage in relation
+          to the whole image could be calculated. However, the result is still too abstract for the purpose of this project.
+          Moreover, a single image would never be as powerful in its message as multiple images, just like single data points
+          are nearly useless without knowing about the whole collection. Therefore, another iteration on the problem lead to
+          the choice of applying each image category to an individual filter. For illustrating how biometric data is extracted
+          from faces, photographs of the face category were fed into facial recognition software. The result consisted of
+          images with biometric data. Indoor and outdoor photographs both put the subject itself into a secondary position
+          and primarily focused on what the background looks like. In order to strengthen background elements, machine
+          learning tools were used to remove the models themselves from the picture. Furthermore, the nudity category made
+          use of a machine learning algorithm which turned realistic photographs into the style of classic oil paintings.
+          This method allows to display nudity without interfering with the model’s privacy. The people category, which
+          contained images that contained two or more people in them, utilized a technique in which the silhouette of each
+          figure was extracted resulting in images that highlight the character count. Finally, the last two categories
+          being religion and tattoos only anonymized potential faces but did not use any further tools. Instead, their
+          thumbnails contain a zoomed in version of their corresponding religious symbols, respectively tattoos.
 
 toolsTitle: Tools Used
 toolLink: Show
 tools:
-  - title: Tools Used
-    description: Description
-    link: '/'
+  - title: Cleanup.pictures
+    description: >
+      Removes objects, defects, texts or people from an image.
+      You only have to roughly draw a mask on what should be removed.
+    link: 'https://cleanup.pictures/'
 
-  - title: Tools Used
-    description: Description
-    link: '/'
+  - title: Collective Image Classification
+    description: >
+      Still in development. This tool allows you to define a set of questions on what is visible in a picture.
+      Everyone can contribute by answering the questions, based on the answer the image receives attributes.
+      This is an alternative to machine learning algorithms, meant to work with smaller datasets.
+    link: 'https://github.com/tolbri/collective-image-classification'
+
+  - title: befunky
+    description: >
+      Simple to use batch processing for images. Especially useful for cropping and resizing many images at once.
+    link: 'https://www.befunky.com'
+
+  - title: DigitalOcean
+    description: >
+      Provides database hosting and cloud computing resources.
+      New customers and students may apply for 100$ platform credit.
+    link: 'https://www.digitalocean.com'
+
+  - title: Face Blur API
+    description: >
+      A simple to use API endpoint to detect and blur faces.
+    link: 'https://faceblurapi.com'
+
+  - title: FaceX
+    description: >
+      An API to detect facial geometry. Comes with a free testing period.
+    link: 'https://facex.io'
+
+  - title: FaceX Code Samples
+    description: >
+      Sample code and explanation of how to use FaceX in various environments.
+    link: 'https://facex.io/UserGuide/api/ImageAttributesApi.html'
+
+  - title: MongoDB
+    description: >
+      Document database with many features. Can be self hosted, but also provides a variety of free and paid cloud options.
+      Students may receive 50$ platform credit.
+    link: 'https://www.mongodb.com'
+
+  - title: Prisma
+    description: >
+      AI to apply various photographic styles to images.
+    link: 'https://app.prisma-ai.com'
+
+  - title: runway ML Lab
+    description: >
+      Easy to use machine learning interface to help you get started.
+      Provides pre made models and comes with a free testing period.
+    link: 'https://runwayml.com'

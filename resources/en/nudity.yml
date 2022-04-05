@@ -1,9 +1,8 @@
 title: Nudity
-definition: Images that show at least half of a person's face.
+definition: Content which shows the model lightly dressed, for example, only wearing underwear or swimwear.
 description: >
-  Showing your face and who you are in public is not an issue in most cultures.
-  However, what if you would lose control over its biometric data?
-  For example, 19% of the photo show facial data. By uploading your face to the internet,
-  you are not able to trace what happens to it.
+  When going into a clothing store most people would not like to be watched trying on a new pair of underwear.
+  Being naked exposes some of the most private and vulnerable parts of our bodies. However, some customers share
+  intimate content and make themselves publicly viewable.
 cover: './img/face/face-00002.jpg'
 next: '/outdoor'

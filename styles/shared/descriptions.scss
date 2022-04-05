@@ -1,6 +1,7 @@
 %description-10 {
   font-size: 2rem;
   line-height: 1.6;
+  hyphens: auto;
 
   @include media('<phone') {
     font-size: 1.6rem;
@@ -11,6 +12,7 @@
 %description-20 {
   font-size: 2rem;
   line-height: 1.6;
+  hyphens: auto;
 
   @include media('<phone') {
     font-size: 2rem;

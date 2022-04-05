@@ -1,9 +1,8 @@
 title: Religion
-definition: Images that show at least half of a person's face.
+definition: Images that contain religious symbols.
 description: >
-  Showing your face and who you are in public is not an issue in most cultures.
-  However, what if you would lose control over its biometric data?
-  For example, 19% of the photo show facial data. By uploading your face to the internet,
-  you are not able to trace what happens to it.
+  Religion can be a sensitive topic. All over the world people are persecuted and suppressed for their beliefs.
+  While in most countries the situation is not that extreme, the religious orientation remains to be a private matter.
+  In this example, symbols on the model or in the background could indicate their religious orientation.
 cover: './img/face/face-00002.jpg'
 next: '/tattoo'

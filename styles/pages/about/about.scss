@@ -11,7 +11,7 @@
 }
 
 .about__section__name__wrapper {
-  width: 40%;
+  width: 30%;
 
   @include media('<=phone') {
     width: 100%;
@@ -23,7 +23,7 @@
 }
 
 .about__section__content__wrapper {
-  width: 60%;
+  width: 70%;
 
   @include media('<=phone') {
     width: 100%;
@@ -32,6 +32,7 @@
 
 .about__section__content__title {
   @extend %title-24;
+  font-weight: bold;
 }
 
 .about__section__content {
@@ -41,7 +42,8 @@
 
 .about__section__tools__wrapper {
   display: flex;
-  width: 60%;
+  flex-flow: wrap;
+  width: 70%;
 
   @include media('<=phone') {
     width: 100%;
@@ -52,6 +54,7 @@
 .about__tools__wrapper {
   width: 50%;
   margin-bottom: 4rem;
+  padding: 2rem;
 
   @include media('<=phone') {
     width: 100%;
