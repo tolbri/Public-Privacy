@@ -109,7 +109,7 @@ class App {
   addLinkListeners() {
     const links = document.querySelectorAll('a:not(.external)');
 
-    links.forEach((link) => {
+    each(links, (link) => {
       link.onclick = (event) => {
         event.preventDefault();
 
