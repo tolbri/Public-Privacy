@@ -112,6 +112,7 @@ class App {
     each(links, (link) => {
       link.onclick = (event) => {
         if (!link.classList.contains('external')) {
+          console.log('internal link');
           event.preventDefault();
 
           const { href } = link;
