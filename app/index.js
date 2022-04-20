@@ -107,14 +107,16 @@ class App {
    */
 
   addLinkListeners() {
-    const links = document.querySelectorAll('a:not(a .external)');
+    const links = document.querySelectorAll('a');
 
     each(links, (link) => {
       link.onclick = (event) => {
-        event.preventDefault();
+        if (!link.classList.contains('external')) {
+          event.preventDefault();
 
-        const { href } = link;
-        this.onChange({ url: href });
+          const { href } = link;
+          this.onChange({ url: href });
+        }
       };
     });
   }
