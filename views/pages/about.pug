@@ -25,4 +25,8 @@ block content
               .about__tools__wrapper
                 h3.about__section__content__title= tool.title
                 p.about__section__content= tool.description
-                a.about__tool__link(href=tool.link)= page.toolLink
+                a.about__tool__link.external(
+                  href=tool.link,
+                  target='_blank',
+                  rel='noopener'
+                )= page.toolLink

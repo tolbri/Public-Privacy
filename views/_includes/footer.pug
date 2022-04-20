@@ -4,17 +4,23 @@ footer
       li.footer__list__item
         a.footer__link(href='/about', target='_blank')= meta.about
       li.footer__list__item
-        a.footer__link(
+        a.footer__link.external(
           href='https://github.com/tolbri/public-privacy',
-          target='_blank'
+          target='_blank',
+          rel='noopener'
         ) Github
     ul.footer__item
       li.footer__list__item
-        a.footer__link(href='https://timolbrich.com', target='_blank')= meta.portfolio
+        a.footer__link.external(
+          href='https://timolbrich.com',
+          target='_blank',
+          rel='noopener'
+        )= meta.portfolio
       li.footer__list__item
-        a.footer__link(
+        a.footer__link.external(
           href='https://www.linkedin.com/in/tim-olbrich/',
-          target='_blank'
+          target='_blank',
+          rel='noopener'
         ) Linkedin
     ul.footer__item__cookie
       li.footer__list__item

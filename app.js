@@ -5,12 +5,14 @@ const requestLanguage = require('express-request-language');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const UAParser = require('ua-parser-js');
+const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const YAML = require('yaml');
 const fs = require('fs');
 
 const app = express();
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
