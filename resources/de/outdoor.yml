@@ -1,2 +1,8 @@
-title: Outdoor
-description: Beschreibung
+title: Draussen
+definition: Bilder, die außerhalb des eigenen Wohnraums aufgenommen wurden.
+description: >
+  Fotos können nicht nur verraten, wie man aussieht, sondern auch, was man mag, welche Gewohnheiten man hat oder wo man im Urlaub war.
+  Heute können Algorithmen bereits analysieren, wann und wo ein Bild aufgenommen wurde, indem sie den Sonnenstand berücksichtigen
+  oder eindeutige Orientierungspunkte erkennen. Diese Sammlung zeigt Bilder, bei denen die Personen entfernt wurden. Was bleibt ist der Ort
+  an dem das Bild entstand.
+next: '/people'

@@ -3,11 +3,14 @@ description: Beschreibung
 dataset: Sammlung
 published: Veröffentlicht
 bill: Ausgaben
+reward: Bonus
 demography: Demografie
 countryChart: Top 3 Herkunftsländer
-deviceChart: Verteilung genutzter Geräte
+deviceChart: Gerätenutzung
 chartDescription: >
-  Showing your face and who you are in public is not an issue in most cultures.
-  However, what if you would lose control over its biometric data?
-  For example, 19% of the photo show facial data. By uploading your face to the internet,
-  you are not able to trace what happens to it.
+  In jeder Sammlung vermitteln diese Diagramme ein besseres Verständnis dafür, woher die Datenpunkte stammen. Mit anderen Worten, das
+  erste Diagramm listet die drei Länder auf, aus denen sich die Nutzer am häufigsten angemeldet haben, um eine Bewertung zu veröffentlichen. Alle anderen Länder werden unter
+  unter "Rest" zusammengefasst. Zudem zeigt das zweite Diagramm welche Geräte zur Veröffentlichung der Inhalte verwendet wurden. Während
+  Android und iOS sich auf Smartphones und Tablets beziehen, besteht die dritte Kategorie (falls vorhanden) aus unbekannten Geräten und
+  Zugriff von Desktop-Rechnern.
+nextButton: 'Nächste Sammlung'

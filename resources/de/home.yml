@@ -11,10 +11,21 @@ title:
   - 'e Privatsphäre'
 #prettier-ignore-end
 
-introTitle: What's this about?
-introDescription: Desc
+introTitle: Worum geht's?
+introDescription: >
+  In den letzten Jahren hat sich Fast Fashion zu einem immer florierenderen Geschäft entwickelt.
+  Einer der Hauptakteure ist der Online-Händler SHEIN. Um neue Kunden zu gewinnen und bestehende Kunden zu halten,
+  verwendet SHEIN ein Punktesystem. Es belohnt Kunden, wenn sie Produkte bewerten und Fotos hochladen.
+  Die Nutzerinnen und Nutzer vergessen hierbei jedoch den Aspekt des Datenschutzes.
+  Die folgenden Sammlungen zeigen einige der möglichen Probleme auf, die durch die Veröffentlichung privater Inhalte entstehen könnten.
 
-workTitle: How does it work?
-workDescription: Like this
+workTitle: Wie funktioniert's?
+workDescription:
+  - paragraph: 'Die Bewertungen des Kunden werden in einem Kasten neben weiteren Informationen angezeigt. Das wohl auffälligste und interessanteste Element ist das vom Kunden hochgeladene <span data-highlight="preview">Foto</span>. Jede Kategorie zeigt diese Bilder auf eine andere Art und Weise, um den Gedanken der Privatsphäre zu unterstreichen.'
+  - paragraph: 'Außerdem zeigt die rote Zahl den Gesamtbetrag an, der durch die Zusammenfassung aller Bestellungen des jeweiligen Kunden <span data-highlight="spend">ausgegeben</span> wurde. '
+  - paragraph: 'In ähnlicher Weise entspricht der grüne Wert die insgesamt erhaltenen <span data-highlight="reward">Belohnungen</span>, wobei ein Durchschnitt von 15 Punkten pro Bewertung angenommen wird.'
+  - paragraph: 'Außerdem zeigt das <span data-highlight="date">Veröffentlichungsdatum</span> an, wann ein Nutzer den Artikel bewertet hat.'
+  - paragraph: 'Schließlich zeigt der <span data-highlight="comment">Inhalt</span> der Bewertung, was der Kunde im Bewertungsabschnitt geschrieben hat.'
+dummyContent: Dies ist die Bewertung durch den Kunden.
 
 startButton: Start

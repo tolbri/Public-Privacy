@@ -1,2 +1,7 @@
-title: Tattoo
-description: Beschreibung
+title: Tattoos
+definition: Bilder auf denen das Modell eine oder mehrere Tätowierungen hat.
+description: >
+  Viele Menschen tragen Tattoos an den verschiedensten Stellen ihres Körpers. Sie können Ausdruck von Zugehörigkeit sein, manche enthalten die Namen
+  von geliebten Menschen, manche dienen nur einem ästhetischen Zweck. In jedem Fall können Tätowierungen Menschen erkennbar machen, auch wenn
+  andere Körperteile verborgen bleiben. In einigen Ländern setzen die Polizeibehörden bereits Software zur Identifizierung von Personen mit Tattoos ein.
+next: '/about'

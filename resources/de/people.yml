@@ -1,2 +1,8 @@
-title: People
-description: Beschreibung
+title: Leute
+definition: Fotos, die mehr als eine Person zeigen.
+description: >
+  Die Einstellung zum Thema  Datenschutz hängt oft vom einzelnen Nutzern ab. Die online geteilten Informationen betreffen oft nur die Person, die sie veröffentlicht hat.
+  Dennoch sind wir uns manchmal nicht bewusst, dass wir auch die Privatsphäre anderer Personen verletzen. Die folgende Sammlung besteht aus Bildern, auf denen
+  zwei oder mehr Personen zu sehen sind. Mithilfe von maschinellem Lernen wurden diese erkannt und gekennzeichnet. Anschließend wurden die Gesichter
+  unkenntlich gemacht, um die Privatsphäre der jeweiligen Personen zu schützen.
+next: '/religion'

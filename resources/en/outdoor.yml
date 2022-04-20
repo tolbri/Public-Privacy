@@ -5,5 +5,4 @@ description: >
   Today, algorithms can already analyse when and where a picture was taken by taking the position of the sun into account
   or identifying distinct landmarks. This collection shows images in which the model was removed, thus the location itself
   becomes the subject.
-cover: './img/face/face-00002.jpg'
 next: '/people'

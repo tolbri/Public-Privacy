@@ -5,5 +5,4 @@ description: >
   though sometimes we are not aware to expose someone else’s privacy. The following collection consists of images which show
   two or more people. Machine learning was used to identify and tag the detected subjects. After that, the faces of the people
   were made unrecognizable to protect their privacy.
-cover: './img/face/face-00002.jpg'
 next: '/religion'

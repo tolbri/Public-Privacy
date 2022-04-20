@@ -1,2 +1,9 @@
 title: Gesichter
-description: Beschreibung
+definition: >
+  Bilder, die mindestens die Hälfte des Gesichts einer Person zeigen, so dass die Person erkannt werden kann.
+description: >
+  In den meisten Kulturen ist es kein Problem, das Gesicht oder die Identität in der Öffentlichkeit zu zeigen.
+  Was aber, wenn man die Kontrolle über seine biometrischen Daten verlieren würde? Heutzutage wird häufig Software zur Erkennung
+  von Gesichtsgeometrie verwendet, zum Beispiel um Smartphones zu entsperren. Das funktioniert zwar oft gut, aber die gesammelten Daten könnten auch
+  missbraucht werden. In der folgenden Sammlung wird Gesichtserkennungssoftware verwendet, um biometrische Merkmale abzubilden.
+next: '/bedroom'

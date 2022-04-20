@@ -22,10 +22,10 @@ introDescription: >
 workTitle: How?
 workDescription:
   - paragraph: 'The reviews are displayed within a box next to other information. Probably the most prominent and interesting element is the <span data-highlight="preview">photograph</span> uploaded by the customer. Every category shows these images in a different way to underline the idea of privacy. '
-  - paragraph: 'Moreover, the red number indicates the total amount of  <span data-highlight="spend">money spent</span> by summarizing all orders of that particular customer.'
-  - paragraph: 'Similarly, the green value equals the  <span data-highlight="reward">gained rewards</span> in total assuming an average of 15 points per review.'
-  - paragraph: 'Besides that, the publication  <span data-highlight="date">date</span> shows the date a user reviewed the item.'
-  - paragraph: 'Finally, the  <span data-highlight="comment">content</span> of the review shows what the customer wrote in the review section.'
+  - paragraph: 'Moreover, the red number indicates the total amount of <span data-highlight="spend">money spent</span> by summarizing all orders of that particular customer.'
+  - paragraph: 'Similarly, the green value equals the <span data-highlight="reward">gained rewards</span> in total assuming an average of 15 points per review.'
+  - paragraph: 'Besides that, the publication <span data-highlight="date">date</span> shows the date a user reviewed the item.'
+  - paragraph: 'Finally, the <span data-highlight="comment">content</span> of the review shows what the customer wrote in the review section.'
 dummyContent: This text is intended to review the product.
 
 startButton: Start
